@@ -15,9 +15,9 @@ interest in searching text, it's likely that the first function you learn in
 an XQuery class or tutorial is `contains()`. Take this simple XPath
 expression:
 
-```xquery
+{% highlight xquery %}
 //book[contains(title, "arm")]
-```
+{% endhighlight %}
 
 This economical little query searches through all the books in your XML for
 those with a title that contains the phrase "arm" — you know, all of your
@@ -27,7 +27,9 @@ Then in the next lesson you learn about the `matches()` function, which
 can do the same simple searches as `contains()` but can also handle patterns,
 expressed using a pattern matching language called regular expressions:
 
-> `//book[matches(title, "[A-Za-z]\d{2}T!")]`
+{% highlight xquery %}
+//book[matches(title, "[A-Za-z]\d{2}T!")]
+{% endhighlight %}
 
 This finds titles like "W00T!" and "L33T!" — an upper or lower case letter,
 two digits, and a capital T, and an exclamation mark. Slick!
@@ -35,7 +37,9 @@ two digits, and a capital T, and an exclamation mark. Slick!
 Then, naturally, you learn the `highlight-matches()` function, which turns
 highlights the phrase or pattern that you searched for:
 
-> `//book[highlight-matches(title, "[PT]ickl[a-z]+")]`
+{% highlight xquery %}
+//book[highlight-matches(title, "[PT]ickl[a-z]+")]
+{% endhighlight %}
 
 This highlights the matching portion of the book titles: "The Art of
 **Pickling**" and "How to **Tickle** the Ivories like a Pro." Super!
@@ -55,13 +59,13 @@ could combine two features of XQuery 3.0 — the `analyze-text()` function and
 higher order functions — to write a simple, implementation-independent
 `highlight-matches()` function, allowing us to write queries like this:
 
-```
+{% highlight xquery %}
 local:highlight-matches(
     //book/title,
     "[PT]ickl[a-z]+",
     function($word) { <b>{$word}</b> }
     )
-```
+{% endhighlight %}
 
 To make this easier to read, I've split the expression onto several lines.
 Here's what's going on:
@@ -94,5 +98,3 @@ higher order functions and `analyze-string()` function that made this possible
 have been in place for some time now — please take a look at the code and add
 some comments or submit a pull request. Let's ensure everyone learns this
 function right after `contains()` and `matches()`, okay?)
-
-{% gist 5937897 highlight-matches.xq %}
