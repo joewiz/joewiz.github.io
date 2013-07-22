@@ -6,8 +6,9 @@ tags:
 - xquery
 - existdb
 - dhoxss
+link: http://depalaeographia.tumblr.com/post/9120075588/upside-down
 ---
-[depalaeographia](http://depalaeographia.tumblr.com/post/9120075588/upside-down):
+depalaeographia:
 
 > After the [Digital.Humanities\@Oxford Summer School 2011](http://digital.humanities.ox.ac.uk/DHSS2011/) my post-doc project went topsy-turvy. All those mighty Xs (XML, XHTML, XQuery, XPath, eXist, oXygen…) persuaded me to drop SQL and say goodbye to the command line.
 
