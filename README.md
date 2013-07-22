@@ -1,12 +1,4 @@
-joewiz.github.io
-================
+joewiz.org
+==========
 
-a github pages page
-
-testing prose.io
-
-```xquery
-for $x in 1 to 10
-return
-	$x * 2
-```
+[joewiz.org](http://joewiz.org), hosted by Github pages, based on Jekyll.
