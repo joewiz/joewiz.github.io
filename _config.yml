@@ -16,7 +16,7 @@ domain:      joewiz.org
 title:       joewiz.org
 author:      Joe Wicentowski
 email:       joewiz@gmail.com
-description: Homepage of joewiz
+description: This is where Joe Wicentowski writes things longer than 140 characters.
 
 feedburner:
   id:        joewiz-org
@@ -25,6 +25,15 @@ google_analytics:
   account:   UA-582491-4
 
 github:
+  username:  joewiz
+
+twitter:
+  username:  joewiz
+
+tumblr:
+  username:  joewiz
+
+pinboard:
   username:  joewiz
 
 relative_permalinks: true
