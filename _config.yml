@@ -3,7 +3,7 @@ destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
 include:     ['.htaccess']
-exclude:     []
+exclude:     ['README.md']
 keep_files:  ['.git','.svn']
 timezone:    America/New_York
 
@@ -12,9 +12,24 @@ show_drafts: nil
 limit_posts: 0
 pygments:    true
 
+domain:      joewiz.org
+title:       joewiz.org
+author:      Joe Wicentowski
+email:       joewiz@gmail.com
+description: Homepage of joewiz
+
+feedburner:
+  id:        joewiz-org
+
+google_analytics:
+  account:   UA-582491-4
+
+github:
+  username:  joewiz
+
 relative_permalinks: true
 
-permalink:     date
+permalink:     pretty
 paginate_path: 'page:num'
 
 markdown:      maruku

@@ -3,34 +3,46 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-        <title>joewiz.github.io by joewiz</title>
+        <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+        {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
         <link rel="stylesheet" href="/stylesheets/styles.css" />
         <link rel="stylesheet" href="/stylesheets/pygment_trac.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        {% if site.feedburner %}<link href="http://feeds.feedburner.com/{{ site.feedburner.id }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />{% endif %}
+        {% if site.google_analytics %}<!-- google analytics async -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{{ site.google_analytics.account }}']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>{% endif %}
         <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
     <body>
         <div class="wrapper">
             <header>
-                <h1>joewiz.github.io</h1>
-                <p>a github pages page</p>
-                <p class="view"><a href="https://github.com/joewiz">View My GitHub Profile</a></p>
+                <a href="/"><h1>{{ site.title }}</h1></a>
+                <p>{{ site.description }}</p>
             </header>
             <section>
-                <h3>Welcome to joewiz.github.io.</h3>
-                <p>Homepage of joewiz</p>
+                {{ content }}
+                <h3>Posts</h3>
                 <ul> 
                     {% for post in site.posts %} 
                     <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_long_string }}</small>
                     </li> 
                     {% endfor %} 
                 </ul>
             </section>
             <footer>
-                <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+                <p><small>Hosted on GitHub Pages &mdash; based on theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
             </footer>
         </div>
         <script src="/javascripts/scale.fix.js"></script>
