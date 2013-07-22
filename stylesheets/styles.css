@@ -1,6 +1,6 @@
 body {
   padding:50px;
-  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#5a5a5a;
 }
 
@@ -23,6 +23,10 @@ h1 {
 
 h2 {
   color:#393939;
+}
+
+h2.linked-list:after {
+    content:" →";
 }
 
 h3, h4, h5, h6 {
