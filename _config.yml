@@ -4,7 +4,7 @@ plugins:     ./_plugins
 layouts:     ./_layouts
 include:     ['.htaccess']
 exclude:     ['README.md']
-keep_files:  ['.git','.svn']
+keep_files:  ['.git', '.svn']
 timezone:    America/New_York
 
 future:      true
@@ -16,10 +16,7 @@ domain:      joewiz.org
 title:       joewiz.org
 author:      Joe Wicentowski
 email:       joewiz@gmail.com
-description: This is where Joe Wicentowski writes things longer than 140 characters.
-
-feedburner:
-  id:        joewiz-org
+description: This is where Joe Wicentowski writes more than 140 characters.
 
 google_analytics:
   account:   UA-582491-4
