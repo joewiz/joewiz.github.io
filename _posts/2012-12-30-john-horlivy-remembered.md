@@ -2,9 +2,8 @@
 layout: post
 title: John Horlivy Remembered
 tags:
-- john horlivy
-- teachers
 - writing
+date: 2012-12-30 07:15:00-4000
 ---
 [John Horlivy Remembered](http://www.johnhorlivyremembered.com/)
 
