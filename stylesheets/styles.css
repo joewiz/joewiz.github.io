@@ -25,8 +25,8 @@ h2 {
   color:#393939;
 }
 
-h2.linked-list:after {
-    content:" →";
+h2.linked-list:before {
+    content:"→ ";
 }
 
 h3, h4, h5, h6 {
@@ -61,7 +61,7 @@ blockquote {
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   color:#333;
-  font-size:12px;
+  font-size:.9em;
 }
 
 pre {
@@ -102,6 +102,10 @@ header {
   position:fixed;
 }
 
+header ul {
+    font-size: smaller;
+}
+
 strong {
   color:#222;
   font-weight:700;
@@ -129,6 +133,10 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+}
+
+.footnotes {
+    font-size: smaller;
 }
 
 @media print, screen and (max-width: 960px) {
