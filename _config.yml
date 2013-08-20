@@ -79,18 +79,3 @@ kramdown:
 
 redcloth:
   hard_breaks: true
-
-prose:
-  siteurl: "http://joewiz.org"
-  metadata:
-    _posts:
-    - layout: "post"
-    - name: "title"
-      field:
-        element: "text"
-        label: "Title"
-    - date: CURRENT_DATETIME
-    - name: "tags"
-      field:
-        element: "textarea"
-        label: "Tags"
