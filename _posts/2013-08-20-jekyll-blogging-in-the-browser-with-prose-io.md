@@ -5,7 +5,6 @@ title: Jekyll Blogging in the Browser with prose.io
 tags: 
   - writing
   - jekyll
-link: Jekyll Blogging in the Browser with prose.io
 ---
 
 In my continuing quest to find good ways to write and edit this Jekyll- and Github Pages-based blog (see my last post about [Octopage](http://joewiz.org/2013/08/18/mobile-blogging-with-jekyll/) on the iPhone), let's  turn to the browser.  
