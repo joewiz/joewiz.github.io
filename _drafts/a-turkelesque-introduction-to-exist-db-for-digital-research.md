@@ -6,7 +6,7 @@ tags:
 - text
 - dh
 - exist-db
-published: false
+draft: true
 ---
 
 Bill Turkel is perhaps best known in digital humanities circles as the author of the essential resource, [The Programming Historian](http://programminghistorian.org/).[^1] Besides this, Bill has been writing an excellent series of blog posts aimed at getting digital humanists familiar with Linux as a tool for text analysis:

@@ -6,7 +6,7 @@ tags:
 - text
 - dh
 - exist-db
-published: false
+draft: true
 ---
 
 Installing eXist-db is simple.  Just [download the installer](http://exist-db.org/), run it by double-clicking on the file once the download is complete, and follow the installer's prompts.  

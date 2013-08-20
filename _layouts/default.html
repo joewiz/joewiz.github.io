@@ -38,7 +38,8 @@
                 </ul>
             </header>
             <section>
-                {% for post in site.posts %} 
+                {% for post in site.posts %}
+                {% unless post.draft %}
                 <article>
                     {% if post.link %}
                     <a href="{{ post.link }}"><h2 class="linked-list">{{ post.title }}</h2></a>
@@ -49,6 +50,7 @@
                     {{ post.content }}
                 </article>
                 <hr/>
+                {% endunless %}
                 {% endfor %} 
             </section>
             <footer>
