@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Mobile Blogging with Jekyll"
-tags: writing, jekyll
+tags:
+- writing
+- jekyll
 ---
 Some of the best writing happens in the moment. One downside of moving to Jekyll is that you leave the vibrant ecosystem of mobile blogging apps. Tumblr's app, for example, let me get thoughts down and post them right away, or edit old posts with ease. 
 
