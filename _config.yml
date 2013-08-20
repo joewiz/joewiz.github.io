@@ -84,15 +84,12 @@ prose:
   siteurl: "http://joewiz.org"
   metadata:
     _posts:
-    - name: "layout"
-      field:
-        element: "text"
-        value: "post"
-        label: "Layout"
+    - layout: "post"
     - name: "title"
       field:
         element: "text"
         label: "Title"
+    - date: CURRENT_DATETIME
     - name: "tags"
       field:
         element: "textarea"
