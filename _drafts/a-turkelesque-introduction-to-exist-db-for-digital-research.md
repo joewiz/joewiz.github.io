@@ -1,4 +1,11 @@
 ---
+layout: post
+title: A Turkelesque Introduction to eXist-db for Digital Research
+tags:
+- xquery
+- text
+- dh
+- exist-db
 published: false
 ---
 
@@ -15,13 +22,7 @@ After reading each article, my instinct was to write a companion piece geared ar
 
 So, taking Bill's articles as inspiration, this will begin that companion series of articles, introducing eXist-db as a tool for text analysis.  In this first entry, we'll install eXist-db.
 
-## Installing eXist-db
-
-Installing eXist-db is simple.  Just [download the installer](http://exist-db.org/), run it (double-clicking on the file once the download is complete), and follow the installer's prompts.  eXist-db.org's article on [Getting Started](http://exist-db.org/exist/apps/doc/quickstart.xml) does a great job leading you through these steps.  The Getting Started video on the homepage is also a great way to learn how to install the application ([Direct YouTube link](http://www.youtube.com/watch?v=xvMau2aHRDo#at=132)).
-
-## Looking ahead
-
-Next time, we'll upload text into eXist-db and perform basic text analysis.
+Next time, we'll install eXist-db and upload some text into eXist-db and perform basic text analysis.
 
 [^1]: See the first edition at [http://niche-canada.org/member-projects/programming-historian/ch1.html](niche-canada.org).  Bill was also the author of the award winning [Digital History Hacks](http://digitalhistoryhacks.blogspot.com/) blog.
 
