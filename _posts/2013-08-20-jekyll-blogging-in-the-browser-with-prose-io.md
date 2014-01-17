@@ -7,7 +7,7 @@ tags:
   - jekyll
 ---
 
-In my continuing quest to find good tools for writing for this Jekyll- and Github Pages-based blog (see [my last post](http://joewiz.org/2013/08/18/mobile-blogging-with-jekyll/) about writing from the iPhone), let's turn to the browser!  
+In my continuing quest to find good tools for writing for this Jekyll- and Github Pages-based blog (see [my last post](http://joewiz.org/2013/08/18/mobile-blogging-with-jekyll/) about writing from the iPhone), let's turn to the browser.  
 
 Imagine this scenario: You're sitting at a computer and want to write a new post or edit an existing one.  You could use GitHub's web-based editor.  It's quite good.  But it only takes a look at how GitHub [handles the job of previewing](https://github.com/joewiz/joewiz.github.io/blob/master/_posts/2013-08-18-mobile-blogging-with-jekyll.md) the [Markdown source](https://raw.github.com/joewiz/joewiz.github.io/master/_posts/2013-08-18-mobile-blogging-with-jekyll.md) of that same last post to understand that GitHub's Markdown parsing abilities aren't great with Jekyll's YAML metadata (which holds items like the post's title, date, etc.).  Github's editor succeeds at letting you edit and commit your changes directly to Github, but comes short when it comes to Jekyll Markdown files.
 
