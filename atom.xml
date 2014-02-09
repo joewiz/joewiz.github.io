@@ -1,5 +1,6 @@
 ---
 # based on https://github.com/krisb/jekyll-template/blob/master/atom.xml
+# and http://blog.pixarea.com/2012/07/draft-posts-in-jekyll
 layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
@@ -16,6 +17,7 @@ layout: nil
     </author>
     
     {% for post in site.posts %}
+    {% unless post.draft %}
     <entry>
         <title>{{ post.title }}</title>
         <link href="http://{{ site.domain }}{{ post.url }}"/>
@@ -23,6 +25,7 @@ layout: nil
         <id>http://{{ site.domain }}{{ post.id }}</id>
         <content type="html">{{ post.content | xml_escape }}</content>
     </entry>
+    {% endunless %}
     {% endfor %}
     
 </feed>
