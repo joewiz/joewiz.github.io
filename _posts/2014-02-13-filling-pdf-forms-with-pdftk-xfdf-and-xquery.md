@@ -50,59 +50,65 @@ Yuck! A nasty, domain-specific format! Sid kindly provided a PHP-based `forge_fd
 
 As one final effort, I searched Google for "FDF XML" and was excited to find an XML edition of FDF, called [XFDF](http://en.wikipedia.org/wiki/Portable_Document_Format#XML_Forms_Data_Format_.28XFDF.29), the *XML* Forms Data Format.  Instead of needing to generate something like the FDF sample above, I just needed a nice, clean XML document in the XFDF namespace, containing `field` elements and a simple name-value structure like this:
 
-    <xfdf xmlns="http://ns.adobe.com/xfdf/">
-        <fields>
-            <field name="city">
-                <value>San Francisco</value>
-            </field>
-            <field name="state">
-                <value>California</value>
-            </field>
-        </fields>
-    </xfdf>
+{% highlight xml %}
+<xfdf xmlns="http://ns.adobe.com/xfdf/">
+    <fields>
+        <field name="city">
+            <value>San Francisco</value>
+        </field>
+        <field name="state">
+            <value>California</value>
+        </field>
+    </fields>
+</xfdf>
+{% endhighlight %}
 
 Anyone who has used XML could easily code this by hand, but if you add a little XQuery knowledge, you could dynamically generate fields and values easily. And best of all, Sid's PDFtk tool is just as happy to take XFDF and plain old FDF and apply it to your form.
 
 So I set about creating my XFDF files. I fired up eXist-db, started its built-in XQuery editor, [eXide](https://github.com/wolfgangmm/eXide) ([live demo](http://exist-db.org/exist/apps/eXide)). Knowing that I would need calendaring functions for my form, I used eXist-db's Package Manager to install the [FunctX library](http://www.xqueryfunctions.com/), a library with useful functions, including `days-in-month()`. Since I needed 12 forms, one for each month in the year, I wrote an XQuery that generated 12 separate XFDF documents. You can see [my full XQuery](https://gist.github.com/joewiz/8970317) for [my specific form](http://www.archives.gov/isoo/security-forms/sf702.pdf), but I present a slightly simplified version here:
 
-    xquery version "3.0";
-    
-    import module namespace functx="http://www.functx.com";
-    
-    let $year := 2014
-        (: Generate the months of year as padded, two-digit values, e.g., January > 01 :)
-    let $months := (1 to 12) ! functx:pad-integer-to-length(., 2) 
-    for $month in $months
-        (: Craft an xs:date for each month to calculate the days in the month :)
-    let $first-day := xs:date(string-join(($year, $month, '01'), '-')) 
-    let $days := (1 to functx:days-in-month($first-day)) ! functx:pad-integer-to-length(., 2)
-    let $month-year := $month || '/' || substring($year, 3, 2)
-    return
-        <xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
-            <fields>
-                <field name="form1[0].#subform[0].MONTHYEAR[0]">
-                    <value>{$month-year}</value>
+{% highlight xquery %}
+xquery version "3.0";
+
+import module namespace functx="http://www.functx.com";
+
+let $year := 2014
+    (: Generate the months of year as padded, two-digit values, e.g., January > 01 :)
+let $months := (1 to 12) ! functx:pad-integer-to-length(., 2) 
+for $month in $months
+    (: Craft an xs:date for each month to calculate the days in the month :)
+let $first-day := xs:date(string-join(($year, $month, '01'), '-')) 
+let $days := (1 to functx:days-in-month($first-day)) ! functx:pad-integer-to-length(., 2)
+let $month-year := $month || '/' || substring($year, 3, 2)
+return
+    <xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
+        <fields>
+            <field name="form1[0].#subform[0].MONTHYEAR[0]">
+                <value>{$month-year}</value>
+            </field>
+            { 
+            for $day at $n in $days 
+            let $field-name :=
+                if ($n le 22) then 
+                    'form1[0].#subform[0].Date' || $n || '[0]'
+                else 
+                    'form1[0].#subform[0].Date' || $n - 22 || '[1]'
+            return
+                <field name="{$field-name}">
+                    <value>{$day}</value>
                 </field>
-                { 
-                for $day at $n in $days 
-                let $field-name :=
-                    if ($n le 22) then 
-                        'form1[0].#subform[0].Date' || $n || '[0]'
-                    else 
-                        'form1[0].#subform[0].Date' || $n - 22 || '[1]'
-                return
-                    <field name="{$field-name}">
-                        <value>{$day}</value>
-                    </field>
-                }
-            </fields>
-        </xfdf>
+            }
+        </fields>
+    </xfdf>
+{% endhighlight %}
 
 This script generates 12 XFDF elements, one for each month of the year, with fields for month-year (e.g., `01/14` for January 2014) and for each day of the month (e.g., `01`-`22` for the first column of fields containing 22 days of the month, and `23` forward for the second column containing the remaining days of the month).  Notice also that I had to go through effort to generate the correct field names (e.g., `form1[0].#subform[0].Date1[0]` for the field containing the first day of the month).  These were the field names as I found them in the text file of field data that I generated above with PDFtk. Although the field names were complex, at least there was a pattern that I could use to generate them without typing each one.
 
 Once I had my XQuery working correctly, I copied the resulting XFDF documents out of the database onto disk and crafted a bash script to apply the XFDF files onto the form with PDFtk:
 
-    $ for FDF in *.xml; do BASENAME=`basename -s .xml $FDF`; pdftk sf702.pdf fill_form "$FDF" output $BASENAME.pdf; done
+{% highlight bash %}
+$ for FDF in *.xml; do BASENAME=`basename -s .xml $FDF`; pdftk sf702.pdf fill_form "$FDF" output $BASENAME.pdf; done
+{% endhighlight %}
 
 This takes each XFDF file (e.g., `sf702-01.xml` with the January form), applies the file to the blank PDF form (`sf702.pdf`), and saves the filled form as a new PDF using the basename of the XFDF file (`sf702-01`) plus the `.pdf` prefix to yield the `sf702-01.pdf` file for January.
 
@@ -110,12 +116,12 @@ It worked like a charm!
 
 To illustrate some other capabilities of PDFtk, I merged the PDFs together to form a single file for convenience:
 
-    $ pdftk *.pdf cat output sf702-2014.pdf
+{% highlight bash %}
+$ pdftk *.pdf cat output sf702-2014.pdf
+{% endhighlight %}
 
 And I "flattened" the form data to save space (over 60% in my case), which also makes the form no longer editable:
 
-    $ pdftk sf702-2014.pdf output sf702-2014-flattened.pdf flatten
-
-In sum, the combination of PDFtk, XFDF, and XQuery with eXist-db will definitely help the next time I have to do something like this. You can find my XQuery and one sample XFDF file on [my GitHub gist for this article](https://gist.github.com/joewiz/8970317).
-
-Beyond this specific use case, I can imagine other applications. You could use eXist-db's abilities as a database and web app server to create a web page that compiles information from the database, helps users fill a form in, and then offers the completed form for download or submission onto a remote service.
+{% highlight bash %}
+$ pdftk sf702-2014.pdf output sf702-2014-flattened.pdf flatten
+{% endhighlight %}
