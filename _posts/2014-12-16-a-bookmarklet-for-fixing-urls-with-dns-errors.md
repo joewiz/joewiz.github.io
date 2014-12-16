@@ -42,7 +42,7 @@ Console returned the original URL.
 
     templateData.summary.failedUrl
 
-returned
+... returned:
 
     http://redirect.company.blah/?url=http://www.google.com/
 
