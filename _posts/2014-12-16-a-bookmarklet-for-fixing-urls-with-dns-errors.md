@@ -6,7 +6,7 @@ tags:
   - chrome
   - bookmarklet
 ---
- 
+
 [Bookmarklets](http://en.wikipedia.org/wiki/Bookmarklet) are great.  They're just like any bookmark 
 you add to your web browser, except they containing a snippet of Javascript that runs when you click 
 on it.  One of the first bookmarklets I used was for [Instapaper](https://www.instapaper.com/save); 
@@ -18,7 +18,7 @@ like this:
 
 [http://redirect.company.blah/?url=http://www.google.com/](http://redirect.company.blah/?url=http://www.google.com/)
 
-If you try to open this link, your browser will naturally tell you that "This webpage is not available."  
+If you try to open this link, your browser will naturally tell you that "This webpage is not available." 
 Fixing the URL is easy enough: just chop off everything before the `?url=` bit.  But doing this over and over
 struck me as a chore that a bookmarklet could take care of for me.  I'd written a few convenience 
 bookmarklets in the past to switch between local and remote versions of my website.  The javascript in these 
@@ -30,7 +30,7 @@ javascript:(function(){window.open('http://localhost:8080'+window.location.pathn
 {% endhighlight %}
 
 With the corporate intranet URL, though, I ran right into a roadblock using this approach: 
-`window.location.href` was returning `data:text/html,chromewebdata"` instead of the URL in the location bar.  
+`window.location.href` was returning `data:text/html,chromewebdata"` instead of the URL in the location bar. 
 The problem was that Chrome's DNS error page had usurped the window's `location`!  It seemed that the 
 original URL was nowhere to be found in the DOM in `window.*` where I was used to looking.
 
