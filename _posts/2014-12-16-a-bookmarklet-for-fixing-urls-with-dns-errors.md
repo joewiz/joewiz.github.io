@@ -30,12 +30,12 @@ javascript:(function(){window.open('http://localhost:8080'+window.location.pathn
 {% endhighlight %}
 
 With the corporate intranet URL, though, I ran right into a roadblock using this approach: 
-`window.location.href` was returning `data:text/html,chromewebdata"` instead of the URL in the location bar. 
+`window.location.href` was returning `data:text/html,chromewebdata` instead of the URL in the location bar. 
 The problem was that Chrome's DNS error page had usurped the window's `location`! It seemed that the 
 original URL was nowhere to be found in the DOM in `window.*` where I was used to looking.
 
 But then I noticed that the text of Chrome's error page contained the original URL. While View Source was of 
-no help, I brought up Google's Developer Tools (right click on the page and select Inspect Element) 
+no help, I brought up Google's Developer Tools (right-click on a web page, and select Inspect Element) 
 and dug into the actual source code of the error page. I found the full original URL in a Javascript 
 variable accessible via `templateData.summary.failedUrl`. Typing this phrase into the Developer 
 Console returned the original URL.
@@ -46,13 +46,13 @@ returned
 
     http://redirect.company.blah/?url=http://www.google.com/
 
-Bingo! Now I needed strip off everything before the `?url=` parameter. Regex to the rescue! 
+Bingo! Now I just needed strip off everything before the `?url=` parameter. Regex to the rescue! 
 
     templateData.summary.failedUrl.replace(/.*\?url=/,'')
 
 ... returned: 
 
-    www.google.com
+    http://www.google.com/
 
 With this in hand, I was able to create my bookmarklet:
 
