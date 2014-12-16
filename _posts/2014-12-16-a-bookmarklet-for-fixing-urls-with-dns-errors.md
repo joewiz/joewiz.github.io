@@ -6,7 +6,7 @@ tags:
   - chrome
   - bookmarklet
 ---
-
+ 
 [Bookmarklets](http://en.wikipedia.org/wiki/Bookmarklet) are great.  They're just like any bookmark 
 you add to your web browser, except they containing a snippet of Javascript that runs when you click 
 on it.  One of the first bookmarklets I used was for [Instapaper](https://www.instapaper.com/save); 
