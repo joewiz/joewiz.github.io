@@ -10,7 +10,7 @@ timezone:    America/New_York
 future:      true
 show_drafts: nil
 limit_posts: 0
-pygments:    true
+highlighter: true
 
 domain:      joewiz.org
 title:       joewiz.org

@@ -1,7 +1,7 @@
 ---
 # based on https://github.com/krisb/jekyll-template/blob/master/atom.xml
 # and http://blog.pixarea.com/2012/07/draft-posts-in-jekyll
-layout: nil
+layout: null
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
