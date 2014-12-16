@@ -40,7 +40,7 @@ and dug into the actual source code of the error page. I found the full original
 variable accessible via `templateData.summary.failedUrl`. Typing this phrase into the Developer 
 Console returned the original URL.
 
-`templateData.summary.failedUrl
+`templateData.summary.failedUrl`
 
 returned
 
