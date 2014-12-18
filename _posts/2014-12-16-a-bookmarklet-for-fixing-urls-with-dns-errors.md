@@ -5,7 +5,7 @@ title: A Google Chrome bookmarklet for fixing URLs with DNS errors
 tags: 
   - chrome
   - bookmarklet
-date: 2014-12-18 16:15:00-0400
+date: 2014-12-16 16:15:00-0400
 ---
 
 [Bookmarklets](http://en.wikipedia.org/wiki/Bookmarklet) are great.  They're just like any bookmark 
