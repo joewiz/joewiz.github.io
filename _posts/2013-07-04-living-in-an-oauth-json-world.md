@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Living in an OAuth & JSON World
+title: Living in an OAuth &amp; JSON World
 tags:
 - xquery 
 - oauth 
