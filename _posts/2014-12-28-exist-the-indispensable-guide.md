@@ -23,7 +23,7 @@ Still, as helpful and vital as these resources were and are, the absence of a bo
 
 ## The book
 
-Finally, with the publication of Retter and Siegel's _eXist_, we have that on-ramp, that practical companion to Walmsley's _XQuery_[^1], which guides you in applying XQuery and XML to develop real-world desktop or web applications, soup-to-nuts. Far from just a beginners guide, its ambitious, comprehensive, even encyclopedic coverage of core through advanced aspects of eXist will earn a lasting space on your bookshelf.
+Finally, with the publication of Retter and Siegel's _eXist_, we have that on-ramp, that practical companion to Walmsley's _XQuery_[^1], to guide you in applying XQuery and XML to develop real-world desktop or web applications, soup-to-nuts. Far from just a beginners guide, its ambitious, comprehensive, even encyclopedic coverage of core through advanced aspects of eXist will earn a lasting space on your bookshelf.
 
 The first chapters walk you through download and installation of the software, offering tips for every major platform eXist supports—Mac, PC, and Linux. It explains how to navigate the built-in documentation and resources, how to get data into and out from eXist, and how to connect eXist to popular tools for XML and XQuery work, such as oXygen. By the end of Chapter 3 ("eXist 101"), you'll have built a searchable, browse-able website around a collection of Shakespeare plays encoded as XML. These lessons and apply it to their own project as a simple proof of concept. On-ramp? Check.
 
