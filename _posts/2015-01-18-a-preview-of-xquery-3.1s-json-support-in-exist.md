@@ -48,7 +48,7 @@ return
     <tweet-text>{$tweet?text}</tweet-text>
 {% endhighlight %}
 
-Fewer functions, more streamlined syntax, and direct access to JSON objects.  But XQuery 3.1 isn't a full recommendation yet.  
+No externa module import, fewer function calls, more streamlined syntax, and direct access to JSON objects.  But XQuery 3.1 isn't a full recommendation yet.  
 
 Luckily, Wolfgang Meier has begun work on [a new branch of eXist](https://github.com/wolfgangmm/exist/commits/arrays) with support for XQuery 3.1.  He's selected the [Jackson](http://jackson.codehaus.org/) libary to provide the underlying parsing and serialization of JSON.  And he's done a fantastic job adding XQuery 3.1's JSON facilities to eXist.  Remember that 40 MB JSON file that caused XQJSON to run out of memory?  Wolfgang's XQuery 3.1 branch of eXist can parse it in half a second.  In my tests, Wolfgang's branch beats XQJSON hands down.
 
