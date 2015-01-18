@@ -16,6 +16,8 @@ In my mid-2013 article, ["Living in a JSON and OAuth World"](http://joewiz.org/2
 1. Authenticating with OAuth 1.0/1.1a
 1. Parsing the increasingly JSON-only responses from web APIs
 
+Well, these challenges have just gotten a lot easier. Let's review what's happened since I wrote that post.
+
 As to the first challenge, Claudius Teodorescu's [crypto](http://exist-db.org/exist/apps/public-repo/packages/expath-crypto-exist-lib.html) library (see the [EXPath spec](http://expath.org/spec/crypto)) is still running very smoothly, and makes handling of cryptographic hashing challenges like HMAC-SHA1 a breeze.  At the same time, OAuth 2.0 did away with the need for cryptographic request signing and intricate parameter ordering (relying much more on SSL instead), which drastically simplified the task of talking to web APIs that support it.  Having only worked with OAuth 1.0/1.1a before, I kept thinking that I had to be missing something when I read [GitHub's OAuth API docs](https://developer.github.com/v3/oauth/) this weekend this weekend; it was just too simple and straight forward!  Easily a 50-75% reduction in code. My, what a boon for developers.
 
 As to the second challenge, the [XQJSON library](https://github.com/joewiz/xqjson) that I've been maintaining has been limping along, buoyed by community contributions but plagued by [a bug](https://github.com/joewiz/xqjson/issues/14) and the limits of its memory-bound performance.  It continues to work for the applications I originally selected it for—parsing tweets and tumblr posts—and I've invested some time in it, adding a comprehensive test suite.  But feed it a JSON file like [this 40 MB bemoth](https://github.com/textcreationpartnership/Texts/blob/master/TCP.json), and on my system, at least, you'll encounter a java heap space error.  It's been great, but these limits made me feel uneasy about relying on it for the long term.
@@ -45,6 +47,8 @@ for $tweet in $tweets?*
 return
     <tweet-text>{$tweet?text}</tweet-text>
 {% endhighlight %}
+
+Fewer functions, more streamlined syntax, and direct access to JSON objects.  But XQuery 3.1 isn't a full recommendation yet.  
 
 Luckily, Wolfgang Meier has begun work on [a new branch of eXist](https://github.com/wolfgangmm/exist/commits/arrays) with support for XQuery 3.1.  He's selected [Jackson](http://jackson.codehaus.org/) libary to provide the underlying parsing and serialization of JSON.  And he's done a fantastic job adding XQuery 3.1's JSON facilities to eXist.  Remember that 40 MB JSON file that caused XQJSON to run out of memory?  Wolfgang's XQuery 3.1 branch of eXist can parse it in half a second.
 
