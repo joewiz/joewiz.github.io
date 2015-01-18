@@ -11,14 +11,14 @@ tags:
 date: 2015-01-18 04:30:00-0500
 ---
 
-In my mid-2013 article, ["Living in a JSON and OAuth World"](http://joewiz.org/2013/07/04/living-in-an-oauth-json-world/), I outlined how I overcame the two challenges of talking to web APIs like Twitter and Tumblr from eXist and XQuery:
+In my mid-2013 article, ["Living in a JSON and OAuth World"](http://joewiz.org/2013/07/04/living-in-an-oauth-json-world/), I discussed the key challenges of talking to web APIs like Twitter and Tumblr from eXist and XQuery:
 
 1. Authenticating with OAuth 1.0/1.1a
 1. Parsing the increasingly JSON-only responses from web APIs
 
-Well, these challenges have just gotten a lot easier. Let's review what's happened since I wrote that post.
+Well, in the time since that post, these challenges have gotten a lot easier. Let's review what's changed.
 
-As to the first challenge, Claudius Teodorescu's [crypto](http://exist-db.org/exist/apps/public-repo/packages/expath-crypto-exist-lib.html) library (see the [EXPath spec](http://expath.org/spec/crypto)) is still running very smoothly, and makes handling of cryptographic hashing challenges like HMAC-SHA1 a breeze.  At the same time, OAuth 2.0 did away with the need for cryptographic request signing and intricate parameter ordering (relying much more on SSL instead), which drastically simplified the task of talking to web APIs that support it.  Having only worked with OAuth 1.0/1.1a before, I kept thinking that I had to be missing something when I read [GitHub's OAuth API docs](https://developer.github.com/v3/oauth/) this weekend this weekend; it was just too simple and straight forward!  Easily a 50-75% reduction in code. My, what a boon for developers.
+As to the first challenge, Claudius Teodorescu's [crypto library](http://exist-db.org/exist/apps/public-repo/packages/expath-crypto-exist-lib.html) (see the [EXPath spec](http://expath.org/spec/crypto)) is still running very smoothly, and makes handling of cryptographic hashing challenges like HMAC-SHA1 a breeze.  At the same time, OAuth 2.0 did away with the need for cryptographic request signing and intricate parameter ordering (relying much more on SSL instead), which drastically simplified the task of talking to web APIs that support it.  Having only worked with OAuth 1.0/1.1a before, I kept thinking that I had to be missing something when I read [GitHub's OAuth API docs](https://developer.github.com/v3/oauth/) this weekend this weekend; it was just too simple and straight forward!  Easily a 50-75% reduction in code. My, what a boon for developers.
 
 As to the second challenge, the [XQJSON library](https://github.com/joewiz/xqjson) that I've been maintaining has been limping along, buoyed by community contributions but plagued by [a bug](https://github.com/joewiz/xqjson/issues/14) and the limits of its memory-bound performance.  It continues to work for the applications I originally selected it for—parsing tweets and tumblr posts—and I've invested some time in it, adding a comprehensive test suite.  But feed it a JSON file like [this 40 MB bemoth](https://github.com/textcreationpartnership/Texts/blob/master/TCP.json), and on my system, at least, you'll encounter a java heap space error.  It's been great, but these limits made me feel uneasy about relying on it for the long term.
 
