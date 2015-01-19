@@ -23,7 +23,7 @@ As to the first challenge, Claudius Teodorescu's [crypto library](http://exist-d
 As to the second challenge, the [xqjson library](https://github.com/joewiz/xqjson) that I've been maintaining has been limping along, buoyed by community contributions but plagued by [a bug](https://github.com/joewiz/xqjson/issues/14) and the limits of its memory-bound performance.  It continues to work for the applications I originally selected it for—parsing tweets and tumblr posts—and I've invested some time in it, adding a comprehensive test suite.  But feed it a JSON file like [this 40 MB behemoth](https://github.com/textcreationpartnership/Texts/blob/master/TCP.json), and on my system, at least, you'll encounter a java heap space error.  It's been great, but these limits made me feel uneasy about relying on it for the long term.
 
 For some time I've been hearing that the W3C XQuery Working Group was working on a better solution to JSON in XQuery 3.1, currently a [Candidate Recommendation](http://www.w3.org/TR/2014/CR-xquery-31-20141218/), with accompanying [functions and operators spec](http://www.w3.org/TR/xpath-functions-31/).  Whereas the xqjson approach was to take all JSON and convert it to XML first before any processing could take place, XQuery 3.1 can natively deal with JSON objects *as* JSON.
-thi
+
 Instead of writing code like this to parse and query tweets:
 
 {% highlight xquery %}
@@ -37,7 +37,7 @@ return
     <tweet-text>{$tweet/pair[@name = 'text']/string()}</tweet-text>
 {% endhighlight %}
 
-Now we can simply write this:
+... now we can simply write this:
 
 {% highlight xquery %}
 xquery version "3.1";
