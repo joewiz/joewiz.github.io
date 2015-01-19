@@ -8,7 +8,7 @@ tags:
   - xquery
   - json
   - api
-date: 2015-01-18 04:30:00-0500
+date: 2015-01-18 16:30:00-0500
 ---
 
 In my mid-2013 article, ["Living in a JSON and OAuth World"](http://joewiz.org/2013/07/04/living-in-an-oauth-json-world/), I discussed the key challenges of talking to web APIs like Twitter and Tumblr from eXist and XQuery, namely:
