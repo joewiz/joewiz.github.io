@@ -13,12 +13,12 @@ date: 2015-01-18 16:30:00-0500
 
 In my mid-2013 article, ["Living in a JSON and OAuth World"](http://joewiz.org/2013/07/04/living-in-an-oauth-json-world/), I discussed the key challenges of talking to web APIs like Twitter and Tumblr from eXist and XQuery, namely:
 
-1. Authenticating with OAuth 1.0/1.1a
-1. Dealing with responses from the increasingly JSON-centric world of web APIs
+1. Authenticating with [OAuth](http://en.wikipedia.org/wiki/OAuth) 1.0a
+1. Talking to the increasingly [JSON](http://en.wikipedia.org/wiki/JSON)-centric world of web APIs
 
 Well, in the time since that post, these tasks have gotten a lot easier. Let's review what's changed.
 
-First, OAuth 2.0 did away with the need for cryptographic request signing and intricate parameter ordering (relying on SSL's inherent security instead), drastically simplifying the task of talking to web APIs. Having only worked with OAuth 1.0/1.1a before, I kept thinking that I had to be missing something when I read [GitHub's OAuth API docs](https://developer.github.com/v3/oauth/) this weekend to implement an OAuth client in eXist; I'd authenticated in too few steps, and could submit requests without cryptographic signing? Easily a 50-75% reduction in code. My, what a boon. 
+First, OAuth 2.0 [did away](https://blog.apigee.com/detail/oauth_differences) with the need for cryptographic request signing and intricate parameter ordering (relying on SSL's inherent security instead), drastically simplifying the task of talking to web APIs. Having only worked with OAuth 1.0a before, I kept thinking that I had to be missing something when I read [GitHub's OAuth API docs](https://developer.github.com/v3/oauth/) this weekend to implement an OAuth client in eXist; I'd authenticated in too few steps, and could submit requests without cryptographic signing? Easily a 50-75% reduction in code and complexity. My, what a boon. 
 
 Second, dealing with JSON is about to get far simpler. The [xqjson library](https://github.com/joewiz/xqjson) that I've been maintaining has been limping along, buoyed by community contributions and yet plagued by [a bug](https://github.com/joewiz/xqjson/issues/14) and the limits of its memory-bound performance. It continues to work for the applications I originally selected it for—parsing Twitter and Tumblr posts as seen [here](http://history.state.gov/)—and I've invested some time in it, adding [a comprehensive test suite](https://github.com/joewiz/xqjson/blob/master/test/xqjson-tests.xql). But feed it a JSON file like [this 40 MB behemoth](https://github.com/textcreationpartnership/Texts/blob/master/TCP.json) (titles and metadata for the 25,000 recently-released early English books from the Text Creation Partnership), and on my system, at least, you'll encounter a java heap space error. It's been great, but these limits made me feel uneasy about relying on it for the long term.
 
