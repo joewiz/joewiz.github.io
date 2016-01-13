@@ -109,8 +109,8 @@ This plain-text outline of subjects discussed on tapes in the Nixon White House 
 
 One approach to this challenge would be to use find and replace. One of my colleagues tried this, using a tool at hand—Microsoft Word—and it required a 15-step set of find and replace routines, with manual corrections at many steps. Here is how we can use XQuery to accomplish the conversion a single step.  We will write a series of functions that perform the following transformations on the original text:
 
-1. Take each line of text and turn it into a new XML element, ****, which captures the original indent level in an attribute (0 for no indent, 1 for a single tab, 2 for two tabs, and so on).
-2. Place these **** elements into **** elements, and recursively nest the group elements according to the indent levels
+1. Take each line of text and turn it into a new XML element, `<line>`, which captures the original indent level in an attribute (0 for no indent, 1 for a single tab, 2 for two tabs, and so on).
+2. Place these `<line>` elements into `<group>` elements, and recursively nest the group elements according to the indent levels
 3. Take the new group/line tree, transform it into a TEI list/item tree
 
 Here is the first function, **text-to-lines**:
@@ -130,9 +130,9 @@ declare function local:text-to-lines($text as xs:string) {
 };
 {% endhighlight %}
 
-This **text-to-lines** function uses the **tokenize** function to split the text file into a sequence of lines (\n is the new line character).  Then, for each line, we want to determine the "level" of indentation.  A line with 0 tabs is not indented, so we can assign it a level of "0"; for each tab, the level of indentation increases by one.  To check for the presence of tabs, we use the regular-expression-enhanced **matches** function: ^\s checks for a tab (or any whitespace space) at the beginning of the string.  If this "matches" test fails, we can assign a level value of 0.  If there are tabs, we need to isolate the tabs and count them.  We isolate the tabs with regular-expression-enhanced **replace** function.  Then we count the remaining characters (all tabs) with the **string-length** function.  We can't forget the text content of each line, so we use the **replace** function again to isolate the post-tab and post-hyphen content of each line.  Finally, we construct the new **** element.  
+This **text-to-lines** function uses the **tokenize** function to split the text file into a sequence of lines (\n is the new line character).  Then, for each line, we want to determine the "level" of indentation.  A line with 0 tabs is not indented, so we can assign it a level of "0"; for each tab, the level of indentation increases by one.  To check for the presence of tabs, we use the regular-expression-enhanced **matches** function: ^\s checks for a tab (or any whitespace space) at the beginning of the string.  If this "matches" test fails, we can assign a level value of 0.  If there are tabs, we need to isolate the tabs and count them.  We isolate the tabs with regular-expression-enhanced **replace** function.  Then we count the remaining characters (all tabs) with the **string-length** function.  We can't forget the text content of each line, so we use the **replace** function again to isolate the post-tab and post-hyphen content of each line.  Finally, we construct the new `<line level="">` element.  
 
-Passing our text to this function returns a new sequence of elements:
+Passing our text to this function returns a new sequence of `<line>` elements:
 
 {% highlight xml %}
 <line level="0">The President left at 8:48 am</line>
@@ -425,7 +425,9 @@ From this step, a transformation to HTML for presentation is trivial, and using 
 
 * * *
 
-**Update:** This post was migrated from my old posterous.com blog in Dec. 2014, thanks to the [Wayback Machine's copy](https://web.archive.org/web/20130501233347/http://joewiz.posterous.com/an-under-appreciated-use-for-xquery-wrangling).
+**Update (Jan 13, 2016):** Fixed missing element names, which were swallowed in my initial import of the post from Posterous.
+
+**Update (Dec 27, 2014):** This post was migrated from my old posterous.com blog in Dec. 2014, thanks to the [Wayback Machine's copy](https://web.archive.org/web/20130501233347/http://joewiz.posterous.com/an-under-appreciated-use-for-xquery-wrangling).
 
 Also, for posterity, I've adapted a few comments I was able to retrieve:
 
