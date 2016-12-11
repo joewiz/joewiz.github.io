@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="17.1">
     <meta>
-        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="true"/>
+        <filters directoryPatterns=".git" filePatterns=".DS_Store" positiveFilePatterns="" showHiddenFiles="true"/>
         <options/>
     </meta>
     <projectTree name="joewiz.xpr">
