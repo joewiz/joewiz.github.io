@@ -26,9 +26,9 @@ bookmarklets in the past to switch between local and remote versions of my websi
 bookmarklets looks something like this one, which replaces the server name in the window's URL with 
 `localhost:8080`:
 
-{% highlight javascript %}
+``` javascript
 javascript:(function(){window.open('http://localhost:8080'+window.location.pathname);})();
-{% endhighlight %}
+```
 
 With the corporate intranet URL, though, I ran right into a roadblock using this approach: 
 `window.location.href` was returning `data:text/html,chromewebdata` instead of the URL in the location bar. 
@@ -57,9 +57,9 @@ Bingo! Now I just needed strip off everything before the `?url=` parameter. Rege
 
 With this in hand, I was able to create my bookmarklet:
 
-{% highlight javascript %}
+``` javascript
 javascript:(function(){window.location=templateData.summary.failedUrl.replace(/.*\?url=/,'');})()
-{% endhighlight %}
+```
 
 If you'd like to use this bookmarklet too, just drag the following link into your bookmark bar:
 

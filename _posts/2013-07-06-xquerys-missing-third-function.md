@@ -9,25 +9,25 @@ tags:
 ---
 Even if you don't know XQuery, if you've only heard of it, you know XQuery is a language built for querying, or searching, XML. And if you've started learning XQuery for a digital humanities project, you use XQuery because it helps you _search the text_ that you've put inside your XML. Given your interest in searching text, it's likely that the first function you learn in an XQuery class or tutorial is `contains()`. Take this simple XPath expression:
 
-{% highlight xquery %}
+```xquery
 //book[contains(title, "arm")]
-{% endhighlight %}
+```
 
 This economical little query searches through all the books in your XML for those with a title that contains the phrase "arm" — you know, all of your books about armadillo shwarma. Tasty, right?
 
 Then in the next lesson you learn about the `matches()` function, which can do the same simple searches as `contains()` but can also handle patterns, expressed using a pattern matching language called regular expressions:
 
-{% highlight xquery %}
+```xquery
 //book[matches(title, "[A-Za-z]\d{2}T!")]
-{% endhighlight %}
+```
 
 This finds titles like "W00T!" and "L33T!" — an upper or lower case letter, two digits, and a capital T, and an exclamation mark. Slick!
 
 Then, naturally, you learn the `highlight-matches()` function, which turns highlights the phrase or pattern that you searched for:
 
-{% highlight xquery %}
+```xquery
 //book[highlight-matches(title, "[PT]ickl[a-z]+")]
-{% endhighlight %}
+```
 
 This highlights the matching portion of the book titles: "The Art of **Pickling**" and "How to **Tickle** the Ivories like a Pro." Super!
 
@@ -37,13 +37,13 @@ But wait! The `highlight-matches()` function never appears in your lessons or c
 
 This was my experience, lasting several years, until today. I realized that I could combine two features of XQuery 3.0 — the `analyze-string()` function and higher order functions — to write a simple, implementation-independent `highlight-matches()` function, allowing us to write queries like this:
 
-{% highlight xquery %}
+```xquery
 local:highlight-matches(
     //book/title,
     "[PT]ickl[a-z]+",
     function($word) { <b>{$word}</b> }
     )
-{% endhighlight %}
+```
 
 To make this easier to read, I've split the expression onto several lines. Here's what's going on:
 

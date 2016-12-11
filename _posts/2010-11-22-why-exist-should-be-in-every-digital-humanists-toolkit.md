@@ -21,9 +21,9 @@ While nothing this powerful could be trivial to learn and use, eXist is entirely
 
 One of the most direct ways toget a sense of what functionality and power eXist offers digital humanities projects is to visit eXist's homepage and browse to eXist's [XQuery Sandbox](http://exist-db.org/exist/sandbox/ "eXist XQuery Sandbox"). The Sandbox contains sample texts (Hamlet, Macbeth, and Romeo & Juliet) and canned queries that you can try, alter, and play with. Find the "Paste Example" drop-down menu, and select the first item: "Simple full text query on the Shakespeare plays." You'll see that the query window will populate with the following:
 
-{% highlight xquery %}
+```xquery
     //SPEECH[ft:query(., 'love')]
-{% endhighlight %}
+```
 
 This query instructs eXist to show all speeches (`SPEECH` elements) that contain the word "love"—but for now let's set aside the semantics of the query, and get to the results. Click on the "Send" button. Watch the results of the query stream back to you in the bottom results window. Notice how the word "love" is highlighted in the results to help you see the matching text. (Here's what the syntax means: `//SPEECH` asks for all speech elements, and the square-bracketed expression filters or restricts the results to just those that have a match in eXist's fulltext index for the word "love". It's okay not to understand every query now; it's time to play and experiment.)
 

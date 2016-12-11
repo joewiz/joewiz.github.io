@@ -45,7 +45,7 @@ Let's examine one challenging text wrangling scenario that XQuery makes quick wo
 
 This plain-text outline of subjects discussed on tapes in the Nixon White House has a hierarchical structure that is clear to the human eye. But converting this text into a form of XML that captures this structure is challenging. Let's take a look at how we would represent this text in TEI:
 
-{% highlight xml %}
+```xml
 <list>
     <item>The President left at 8:48 am
         <list>
@@ -105,7 +105,7 @@ This plain-text outline of subjects discussed on tapes in the Nixon White House 
         </list>
     </item>
 </list>
-{% endhighlight %}
+```
 
 One approach to this challenge would be to use find and replace. One of my colleagues tried this, using a tool at hand—Microsoft Word—and it required a 15-step set of find and replace routines, with manual corrections at many steps. Here is how we can use XQuery to accomplish the conversion a single step.  We will write a series of functions that perform the following transformations on the original text:
 
@@ -115,7 +115,7 @@ One approach to this challenge would be to use find and replace. One of my colle
 
 Here is the first function, **text-to-lines**:
 
-{% highlight xquery %}
+```xquery
 declare function local:text-to-lines($text as xs:string) {
     let $lines := tokenize($text, '\n')
     for $line in $lines
@@ -128,13 +128,13 @@ declare function local:text-to-lines($text as xs:string) {
     return
         <line level="{$level}">{$content}</line>
 };
-{% endhighlight %}
+```
 
 This **text-to-lines** function uses the **tokenize** function to split the text file into a sequence of lines (\n is the new line character).  Then, for each line, we want to determine the "level" of indentation.  A line with 0 tabs is not indented, so we can assign it a level of "0"; for each tab, the level of indentation increases by one.  To check for the presence of tabs, we use the regular-expression-enhanced **matches** function: ^\s checks for a tab (or any whitespace space) at the beginning of the string.  If this "matches" test fails, we can assign a level value of 0.  If there are tabs, we need to isolate the tabs and count them.  We isolate the tabs with regular-expression-enhanced **replace** function.  Then we count the remaining characters (all tabs) with the **string-length** function.  We can't forget the text content of each line, so we use the **replace** function again to isolate the post-tab and post-hyphen content of each line.  Finally, we construct the new `<line level="">` element.  
 
 Passing our text to this function returns a new sequence of `<line>` elements:
 
-{% highlight xml %}
+```xml
 <line level="0">The President left at 8:48 am</line>
 <line level="1">-Administration recommendations on Capitol Hill</line>
 <line level="1">-Improvements</line>
@@ -163,11 +163,11 @@ Passing our text to this function returns a new sequence of `<line>` elements:
 <line level="2">-Catastrophic care costs</line>
 <line level="2">-Prevention</line>
 <line level="2">-Problems</line>
-{% endhighlight %}
+```
 
 This XML structure now contains all of the information we need in order to take it from this "linear" form into a "nested" form. To do this, we start at the "outer"-most level and work our way "inward", grouping each level that contains inner levels together, and working recursively through until we reach the innermost items. Our group-lines function will take the sequence of line elements and group them together this way:
 
-{% highlight xquery %}
+```xquery
 declare function local:group-lines($lines as element(line)+) {
     let $first-line := $lines[1]
     let $level := $first-line/@level
@@ -191,13 +191,13 @@ declare function local:group-lines($lines as element(line)+) {
             ()
         )
 };
-{% endhighlight %}
+```
 
 This will process the first "level" of our lines into one or more group elements - in our case, it will result in a single group element, containing all of the original line elements. (If our source list had more than one 0-level line, this function would return as many group elements.) In effect, this function returns the outermost layer of our list.
 
 To get the recursion started, we will pass this outer layer group element to our **process-groups** function, which in turn passes each group element to the **apply-levels** function:
 
-{% highlight xquery %}
+```xquery
 declare function local:process-groups($groups as element(group)+) {
     if (count($groups) gt 1) then
         <group>{
@@ -226,11 +226,11 @@ declare function local:apply-levels($group as element(group)) {
         }
     </group>
 };
-{% endhighlight %}
+```
 
 The **apply-levels** function triggers the real recursive processing of the lines. It takes each group of lines, deposits the first line at the new level, and then runs the remaining lines in the group back through the **get-groups** function. This time, the **get-groups** function groups the inner lines according to their levels. This leaves us with a nicely nested set of group and line elements, with the original level attributes intact:
 
-{% highlight xml %}
+```xml
 <group>
     <line level="0">The President left at 8:48 am</line>
     <group>
@@ -327,11 +327,11 @@ The **apply-levels** function triggers the real recursive processing of the lin
         </group>
     </group>
 </group>
-{% endhighlight %}
+```
 
 As you can see, while this respects the original indentation levels of the source text, this is not yet proper TEI. Also, we have some seemingly redundant group elements. The final step is to whittle this structure down to proper a TEI list/item format. For this, we will write a **groups-to-list** function, which starts the new list element and calls a helper function, **inner-groups-to-list** for the remainder of the transformation:
 
-{% highlight xquery %}
+```xquery
 declare function local:groups-to-list($group as element(group)) {
     <list>{local:inner-groups-to-list($group)}</list>
 };
@@ -353,11 +353,11 @@ declare function local:inner-groups-to-list($group as element(group)) {
         return 
             local:inner-groups-to-list($g)
 };
-{% endhighlight %}
+```
 
 Finally, we have a nice TEI list:
 
-{% highlight xml %}
+```xml
 <list>
     <item>The President left at 8:48 am<list>
         <item>-Administration recommendations on Capitol Hill</item>
@@ -408,18 +408,18 @@ Finally, we have a nice TEI list:
     </list>
     </item>
 </list>
-{% endhighlight %}
+```
 
 We can run this entire transformation in one step:
 
-{% highlight xquery %}
+```xquery
 let $lines := local:text-to-lines($text)
 let $groups := local:group-lines($lines)
 let $processed-group := local:process-groups($groups)
 let $list := local:groups-to-list($processed-group)
 return
     $list
-{% endhighlight %}
+```
 
 From this step, a transformation to HTML for presentation is trivial, and using this new structure to drive search applications is a matter of loading the final document into eXist-db.  We've taken our list from a flat text file and have given it structure, enabling a whole range of uses.
 

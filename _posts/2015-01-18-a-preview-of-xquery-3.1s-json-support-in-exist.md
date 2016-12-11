@@ -26,7 +26,7 @@ For some time I've been hearing that the W3C's XQuery Working Group was working 
 
 For example, instead of writing code like this to extract the text of tweets from JSON:
 
-{% highlight xquery %}
+```xquery
 xquery version "3.0";
 
 import module namespace xqjson="http://xqilla.sourceforge.net/lib/xqjson";
@@ -35,18 +35,18 @@ let $tweets := xqjson:parse-json(util:binary-to-string(util:binary-doc('/db/user
 for $tweet in $tweets
 return
     <tweet-text>{$tweet/pair[@name = 'text']/string()}</tweet-text>
-{% endhighlight %}
+```
 
 ... now we can simply write this:
 
-{% highlight xquery %}
+```xquery
 xquery version "3.1";
 
 let $tweets := json-doc('/db/user_timeline.json')
 for $tweet in $tweets?*
 return
     <tweet-text>{$tweet?text}</tweet-text>
-{% endhighlight %}
+```
 
 No external module import, fewer function calls, more streamlined syntax, and direct access to JSON objects. XQuery 3.1 is actually chock full of innovations and labor saving features, but isn't a full recommendation yet. What to do?
 
