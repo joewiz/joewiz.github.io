@@ -35,7 +35,7 @@ This highlights the matching portion of the book titles: "The Art of **Pickling*
 
 But wait! The `highlight-matches()` function never appears in your lessons or class materials. It's not in the XQuery spec. Not the 1.0 version, not the 3.0 version. Surely, this must be a mistake. No, your teacher says. You [google for it](http://lmgtfy.com/?q=xquery+highlight+search+results). You click through the links. Stuff about indexes? Proprietary functions? The disappointment sets in. Really? No standard way to highlight the search results?
 
-This was my experience, lasting several years, until today. I realized that I could combine two features of XQuery 3.0 — the `analyze-text()` function and higher order functions — to write a simple, implementation-independent `highlight-matches()` function, allowing us to write queries like this:
+This was my experience, lasting several years, until today. I realized that I could combine two features of XQuery 3.0 — the `analyze-string()` function and higher order functions — to write a simple, implementation-independent `highlight-matches()` function, allowing us to write queries like this:
 
 {% highlight xquery %}
 local:highlight-matches(
