@@ -1,79 +1,35 @@
-source:      .
-destination: ./_site
-plugins_dir: ./_plugins
-layouts_dir: ./_layouts
-include:     ['.htaccess']
-exclude:     ['README.md']
-keep_files:  ['.git', '.svn']
-timezone:    America/New_York
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-future:      true
-show_drafts: nil
-limit_posts: 0
-highlighter: pygments
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: joewiz.org
+email: joewiz@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  A place to call home
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://joewiz.org" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: joewiz
+github_username:  joewiz
+google_analytics: UA-582491-4
 
-domain:      joewiz.org
-title:       joewiz.org
-author:      Joe Wicentowski
-email:       joewiz@gmail.com
-description: A place to call home
-
-google_analytics:
-  account:   UA-582491-4
-
-github:
-  username:  joewiz
-
-twitter:
-  username:  joewiz
-
-pinboard:
-  username:  joewiz
-
-permalink:     pretty
-paginate_path: 'page:num'
-
-markdown:      kramdown
-markdown_ext:  markdown,mkd,mkdn,md
-textile_ext:   textile
-
-excerpt_separator: "\n\n"
-
-safe:        false
-host:        0.0.0.0
-port:        4000
-baseurl:     /
-url:         http://localhost:4000
-lsi:         false
-
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
-
-rdiscount:
-  extensions: []
-
-redcarpet:
-  extensions: []
-
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-  coderay:
-    coderay_wrap: div
-    coderay_line_numbers: inline
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: style
-
-redcloth:
-  hard_breaks: true
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - joewiz.xpr
+permalink: pretty
