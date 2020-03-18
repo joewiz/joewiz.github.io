@@ -8,6 +8,8 @@ tags:
 date: 2014-12-16 16:15:00-0400
 ---
 
+**Update (March 18, 2020):** As of sometime in 2017, Chrome [disabled the use of javascript](https://groups.google.com/a/chromium.org/forum/#!msg/blink-reviews/ob1_Xw5SWQM/nDhD5QLNAAAJ) on chrome error pages. The technique shown below no longer works.
+
 [Bookmarklets](http://en.wikipedia.org/wiki/Bookmarklet) are great.  They're just like any bookmark 
 you add to your web browser, except they contain a snippet of Javascript that runs when you click 
 on it.  One of the first bookmarklets I used was for [Instapaper](https://www.instapaper.com/save); 
