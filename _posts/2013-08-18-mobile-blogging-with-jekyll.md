@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mobile Blogging with Jekyll
+title: Mobile blogging with Jekyll
 tags: 
   - writing
   - jekyll
