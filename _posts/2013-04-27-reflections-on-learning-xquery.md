@@ -2,10 +2,10 @@
 layout: post
 title: Reflections on learning XQuery
 tags:
-- xquery
-- xml
-- learning
-- dh
+  - xquery
+  - xml
+  - learning
+  - dh
 ---
 Two weeks ago several of my colleagues and I were lucky enough to take a
 course on "[XQuery for
@@ -44,7 +44,7 @@ So, let's begin with a brief introduction about how I came to learn XQuery.
 In mid-2007, as a freshly minted history PhD, my new job presented me with the
 challenge of revamping a website for a group of venerable historical
 publications.  (I've written [an article about the
-project](https://letterpress.uchicago.edu/index.php/jdhcs/article/view/80).)
+project](https://knowledge.uchicago.edu/record/457).)
 After researching the formats in use for encoding books and historical
 documents, I decided to adopt TEI as the format for the publications.   [TEI
 P5](http://www.tei-c.org/Guidelines/P5/)—the standard's 5th major version—was
@@ -58,7 +58,7 @@ conference at U Maryland College Park in October
 2007](http://www.tei-c.org/Membership/Meetings/2007/) and told him about my
 project.  James encouraged me to look into native XML databases.
 
-James' suggestion led me to [eXist-db](http://exist-db.org/).  eXist-db's
+James' suggestion led me to [eXist-db](https://exist-db.org/).  eXist-db's
 Shakespeare demos impressed me with their speed and precision.  Moreover, it
 supported XSLT, which would allow me to use the stylesheets I had adapted from
 TEI community for turning my XML into HTML for the web.
@@ -70,11 +70,11 @@ on XQuery was [published in
 June](http://shop.oreilly.com/product/9780596006341.do)—the month I graduated.
 
 As I taught myself XQuery with eXist-db (not to mention the indispensable
-[oXygen XML Editor](http://oxygenxml.com/)), I found myself ever more
+[oXygen XML Editor](https://oxygenxml.com/)), I found myself ever more
 comfortable with XQuery.  Thanks to an invaluable hint in the right direction
 by David Sewell (using the same typeswitch-based approach he outlined in [this
-mailing list posting](http://developer.marklogic.com/pipermail/general/2008-Au
-gust/001706.html) of his), I migrated all of my XSLT routines to XQuery.  Now,
+mailing list posting](http://developer.marklogic.com/pipermail/general/2008-August/001706.html)
+of his), I migrated all of my XSLT routines to XQuery.  Now,
 rather than having to master two languages, I could focus on the one that did
 everything I needed: XQuery.
 

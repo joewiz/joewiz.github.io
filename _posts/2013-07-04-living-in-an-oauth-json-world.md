@@ -2,16 +2,16 @@
 layout: post
 title: Living in an OAuth & JSON World
 tags:
-- xquery 
-- oauth 
-- apis 
-- json 
-- expath 
-- gov20 
-- twitter 
-- socialmedia 
-- existdb 
-- opensource
+  - xquery 
+  - oauth 
+  - apis 
+  - json 
+  - expath 
+  - gov20 
+  - twitter 
+  - socialmedia 
+  - existdb 
+  - opensource
 ---
 
 Another day, [another gist](http://gist.github.com/joewiz/5929809). Today's was prompted by [a question on the eXist-db mailing list](http://markmail.org/thread/5izhua45glftmxja) about how to access OAuth-based services like the Google API with XQuery. I happened to have just been working on accessing the OAuth-based Twitter v1.1 API for the new social media section of [my office's homepage](http://history.state.gov), so I [posted the code](http://gist.github.com/joewiz/5929809) and [some pointers](https://gist.github.com/joewiz/5929809#comment-856692). Like the gist I posted [yesterday](http://joewiz.tumblr.com/post/54546474105/trimming-text-without-cutting-off-words-using-xquery), I hope others can use these bits of XQuery code.

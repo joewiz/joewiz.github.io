@@ -28,7 +28,7 @@ bookmarklets in the past to switch between local and remote versions of my websi
 bookmarklets looks something like this one, which replaces the server name in the window's URL with 
 `localhost:8080`:
 
-``` javascript
+```javascript
 javascript:(function(){window.open('http://localhost:8080'+window.location.pathname);})();
 ```
 
@@ -43,23 +43,31 @@ and dug into the actual source code of the error page. I found the full original
 variable accessible via `templateData.summary.failedUrl`. Typing this phrase into the Developer 
 Console returned the original URL.
 
-    templateData.summary.failedUrl
+```text
+templateData.summary.failedUrl
+```
 
 ... returned:
 
-    http://redirect.company.blah/?url=http://www.google.com/
+```text
+http://redirect.company.blah/?url=http://www.google.com/
+```
 
 Bingo! Now I just needed strip off everything before the `?url=` parameter. Regex to the rescue! 
 
-    templateData.summary.failedUrl.replace(/.*\?url=/,'')
+```text
+templateData.summary.failedUrl.replace(/.*\?url=/,'')
+```
 
 ... returned: 
 
-    http://www.google.com/
+```text
+http://www.google.com/
+```
 
 With this in hand, I was able to create my bookmarklet:
 
-``` javascript
+```javascript
 javascript:(function(){window.location=templateData.summary.failedUrl.replace(/.*\?url=/,'');})()
 ```
 

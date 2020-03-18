@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Upside Down
+title: Upside down
 tags:
-- xml
-- xquery
-- existdb
-- dhoxss
+  - xml
+  - xquery
+  - existdb
+  - dhoxss
 link: http://depalaeographia.tumblr.com/post/9120075588/upside-down
 ---
 depalaeographia:

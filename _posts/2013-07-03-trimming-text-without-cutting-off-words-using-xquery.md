@@ -2,7 +2,7 @@
 layout: post
 title: Trimming text without cutting off words, using XQuery
 tags:
-- XQuery
+  - XQuery
 link: https://gist.github.com/joewiz/5923408
 ---
 A new Github gist:

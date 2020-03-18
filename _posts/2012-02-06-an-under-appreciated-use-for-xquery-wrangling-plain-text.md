@@ -10,38 +10,40 @@ tags:
 date: 2012-02-06 16:15:00-0400
 ---
 
-In my experience teaching colleagues and students how to use [XQuery](http://en.wikipedia.org/wiki/XQuery) and [eXist-db](http://exist-db.org/) to create dynamic websites out of [TEI](http://www.tei-c.org/) documents, the "syllabus" usually starts in one of two forms. The first assumes that we already have well-formed TEI documents, and we can happily dive right into XML data structure manipulation with XPath and XQuery. The second starts with no XML: a PDF, a word document, or plain text. Now, of course, thanks to [OxGarage](http://www.oucs.ox.ac.uk/oxgarage/) and [oXygen](http://www.oxygenxml.com/demo/Smart_Paste_Copy_Paste_from_Web_Office_Documents_to_DITA_DocBook_TEI_XHTML_Documents.html), we have some good tools for deriving servicable TEI documents out of other formats. But more often than not, the text needs work. Sometimes, the importer fails to capture the structure implicit in the original. For all of these cases, XQuery proves to be an indispensable tool. XQuery's regular-expression functions (such as **matches**, **replace**, and **tokenize**), together with its excellent handling of sequences and recursive functions provide all of the tools one could ever need to tackle everything from simple to the most challenging text wrangling tasks.
+In my experience teaching colleagues and students how to use [XQuery](https://en.wikipedia.org/wiki/XQuery) and [eXist-db](https://exist-db.org/) to create dynamic websites out of [TEI](http://www.tei-c.org/) documents, the "syllabus" usually starts in one of two forms. The first assumes that we already have well-formed TEI documents, and we can happily dive right into XML data structure manipulation with XPath and XQuery. The second starts with no XML: a PDF, a word document, or plain text. Now, of course, thanks to [OxGarage](http://www.oucs.ox.ac.uk/oxgarage/) and [oXygen](http://www.oxygenxml.com/demo/Smart_Paste_Copy_Paste_from_Web_Office_Documents_to_DITA_DocBook_TEI_XHTML_Documents.html), we have some good tools for deriving servicable TEI documents out of other formats. But more often than not, the text needs work. Sometimes, the importer fails to capture the structure implicit in the original. For all of these cases, XQuery proves to be an indispensable tool. XQuery's regular-expression functions (such as `matches()`, `replace()`, and `tokenize()`), together with its excellent handling of sequences and recursive functions provide all of the tools one could ever need to tackle everything from simple to the most challenging text wrangling tasks.
 
 Let's examine one challenging text wrangling scenario that XQuery makes quick work of: transforming an outline of subjects from a [Nixon Tapes subject log](http://nixon.archives.gov/forresearchers/find/tapes/finding_aids/tapesubjectlogs.php) into TEI (this one excerpted from [February 1971's Tape 47](http://nixon.archives.gov/forresearchers/find/tapes/finding_aids/february1971.php)):
 
-    The President left at 8:48 am
-        -Administration recommendations on Capitol Hill
-        -Improvements
-        -Richardson’s trip to New York
-        -Health programs
-                -Goals
-                -Problems in present system
-                -Approach
-                -Emphasis on quality
-        -Improvements in United States’ health care
-                -Maternal deaths
-                        -Rate
-                        -Decline
-                        -United States’ rate compared to other nations
-                                -Reporting system
-                -Data on health
-                        -Differences in reporting system
-                -Low-income people
-                        -Whites
-                        -Non-whites
-                -Mortality rates
-                        -Figures
-        -Resource allocation
-                -Rural areas
-                        -Availability of care
-                -Catastrophic care costs
-                -Prevention
-                -Problems
+```text
+The President left at 8:48 am
+    -Administration recommendations on Capitol Hill
+    -Improvements
+    -Richardson’s trip to New York
+    -Health programs
+            -Goals
+            -Problems in present system
+            -Approach
+            -Emphasis on quality
+    -Improvements in United States’ health care
+            -Maternal deaths
+                    -Rate
+                    -Decline
+                    -United States’ rate compared to other nations
+                            -Reporting system
+            -Data on health
+                    -Differences in reporting system
+            -Low-income people
+                    -Whites
+                    -Non-whites
+            -Mortality rates
+                    -Figures
+    -Resource allocation
+            -Rural areas
+                    -Availability of care
+            -Catastrophic care costs
+            -Prevention
+            -Problems
+```
 
 This plain-text outline of subjects discussed on tapes in the Nixon White House has a hierarchical structure that is clear to the human eye. But converting this text into a form of XML that captures this structure is challenging. Let's take a look at how we would represent this text in TEI:
 
@@ -113,7 +115,7 @@ One approach to this challenge would be to use find and replace. One of my colle
 2. Place these `<line>` elements into `<group>` elements, and recursively nest the group elements according to the indent levels
 3. Take the new group/line tree, transform it into a TEI list/item tree
 
-Here is the first function, **text-to-lines**:
+Here is the first function, `text-to-lines()`:
 
 ```xquery
 declare function local:text-to-lines($text as xs:string) {
@@ -130,7 +132,7 @@ declare function local:text-to-lines($text as xs:string) {
 };
 ```
 
-This **text-to-lines** function uses the **tokenize** function to split the text file into a sequence of lines (\n is the new line character).  Then, for each line, we want to determine the "level" of indentation.  A line with 0 tabs is not indented, so we can assign it a level of "0"; for each tab, the level of indentation increases by one.  To check for the presence of tabs, we use the regular-expression-enhanced **matches** function: ^\s checks for a tab (or any whitespace space) at the beginning of the string.  If this "matches" test fails, we can assign a level value of 0.  If there are tabs, we need to isolate the tabs and count them.  We isolate the tabs with regular-expression-enhanced **replace** function.  Then we count the remaining characters (all tabs) with the **string-length** function.  We can't forget the text content of each line, so we use the **replace** function again to isolate the post-tab and post-hyphen content of each line.  Finally, we construct the new `<line level="">` element.  
+This `text-to-lines()` function uses the `tokenize()` function to split the text file into a sequence of lines (\n is the new line character).  Then, for each line, we want to determine the "level" of indentation.  A line with 0 tabs is not indented, so we can assign it a level of "0"; for each tab, the level of indentation increases by one.  To check for the presence of tabs, we use the regular-expression-enhanced `matches()` function: ^\s checks for a tab (or any whitespace space) at the beginning of the string.  If this "matches" test fails, we can assign a level value of 0.  If there are tabs, we need to isolate the tabs and count them.  We isolate the tabs with regular-expression-enhanced `replace()` function.  Then we count the remaining characters (all tabs) with the `string-length()` function.  We can't forget the text content of each line, so we use the `replace()` function again to isolate the post-tab and post-hyphen content of each line.  Finally, we construct the new `<line level="">` element.  
 
 Passing our text to this function returns a new sequence of `<line>` elements:
 
@@ -195,7 +197,7 @@ declare function local:group-lines($lines as element(line)+) {
 
 This will process the first "level" of our lines into one or more group elements - in our case, it will result in a single group element, containing all of the original line elements. (If our source list had more than one 0-level line, this function would return as many group elements.) In effect, this function returns the outermost layer of our list.
 
-To get the recursion started, we will pass this outer layer group element to our **process-groups** function, which in turn passes each group element to the **apply-levels** function:
+To get the recursion started, we will pass this outer layer group element to our `process-groups()` function, which in turn passes each group element to the `apply-levels()` function:
 
 ```xquery
 declare function local:process-groups($groups as element(group)+) {
@@ -228,7 +230,7 @@ declare function local:apply-levels($group as element(group)) {
 };
 ```
 
-The **apply-levels** function triggers the real recursive processing of the lines. It takes each group of lines, deposits the first line at the new level, and then runs the remaining lines in the group back through the **get-groups** function. This time, the **get-groups** function groups the inner lines according to their levels. This leaves us with a nicely nested set of group and line elements, with the original level attributes intact:
+The `apply-levels()` function triggers the real recursive processing of the lines. It takes each group of lines, deposits the first line at the new level, and then runs the remaining lines in the group back through the `get-groups()` function. This time, the `get-groups()` function groups the inner lines according to their levels. This leaves us with a nicely nested set of group and line elements, with the original level attributes intact:
 
 ```xml
 <group>
@@ -329,7 +331,7 @@ The **apply-levels** function triggers the real recursive processing of the lin
 </group>
 ```
 
-As you can see, while this respects the original indentation levels of the source text, this is not yet proper TEI. Also, we have some seemingly redundant group elements. The final step is to whittle this structure down to proper a TEI list/item format. For this, we will write a **groups-to-list** function, which starts the new list element and calls a helper function, **inner-groups-to-list** for the remainder of the transformation:
+As you can see, while this respects the original indentation levels of the source text, this is not yet proper TEI. Also, we have some seemingly redundant group elements. The final step is to whittle this structure down to proper a TEI list/item format. For this, we will write a `groups-to-list()` function, which starts the new list element and calls a helper function, `inner-groups-to-list()` for the remainder of the transformation:
 
 ```xquery
 declare function local:groups-to-list($group as element(group)) {

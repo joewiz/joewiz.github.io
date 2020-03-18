@@ -2,7 +2,7 @@
 layout: post
 title: John Horlivy Remembered
 tags:
-- writing
+  - writing
 date: 2012-12-30 07:15:00-0400
 link: http://www.johnhorlivyremembered.com/
 ---

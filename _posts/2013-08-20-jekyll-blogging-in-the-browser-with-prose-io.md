@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: Jekyll Blogging in the Browser with prose.io
+title: Jekyll blogging in the browser with prose.io
 tags: 
   - writing
   - jekyll
