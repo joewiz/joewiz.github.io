@@ -9,7 +9,7 @@ tags:
 draft: true
 ---
 
-I'm pleased to announce the publication of my first book, [XQuery for Humanists](https://xquery.forhumanists.org/), co-authored with Cliff Anderson. Not entirely coincidentally, this is also my first post here since announcing that I was ["wrapping up"](https://joewiz.org/2016/12/11/catching-up/) the book project. So there's a lot to catch up on. Since I already used that phrase in that last post, so this time, let's "fast backwards," as my daughter describes the act of rewinding a show on our TV.
+I'm pleased to announce the publication of my first book, [XQuery for Humanists](https://xquery.forhumanists.org/), co-authored with Cliff Anderson. Not entirely coincidentally, this is also my first post here since announcing that I was ["wrapping up"](https://joewiz.org/2016/12/11/catching-up/) the book project. So there's a lot to catch up on. Since I already used that phrase in that last post, let's "fast backwards," to borrow my daughter's phrase for the act of rewinding.
 
 ...
 
