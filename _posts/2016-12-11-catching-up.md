@@ -14,4 +14,4 @@ After spotting a typo in an old post, I fired up my local Jekyll server to previ
 
 The site remains hosted on GitHub Pages, which unfortunately doesn't yet offer [HTTPS support for custom domains](https://github.com/isaacs/github/issues/156). I'd like to stay hosted on GitHub Pages but may need to investigate alternatives.
 
-With this housekeeping done, perhaps I'll put some thoughts down about recent projects over the holidays. For now, just a link to a project I'm working on wrapping up: [XQuery for Humanists](http://coding.forhumanists.org/upcoming-volumes), an introduction to XQuery aimed at digital humanists or really anyone who's trying to learn how to work with XML and XQuery but doesn't have a background in programming.
+With this housekeeping done, perhaps I'll put some thoughts down about recent projects over the holidays. For now, just a link to a project I'm working on wrapping up: [XQuery for Humanists](https://xquery.forhumanists.org/), an introduction to XQuery aimed at digital humanists or really anyone who's trying to learn how to work with XML and XQuery but doesn't have a background in programming.
