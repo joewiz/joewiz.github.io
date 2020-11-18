@@ -39,10 +39,10 @@ This was my experience, lasting several years, until today. I realized that I co
 
 ```xquery
 local:highlight-matches(
-    //book/title,
-    "[PT]ickl[a-z]+",
-    function($word) { <b>{$word}</b> }
-    )
+    //book/title,
+    "[PT]ickl[a-z]+",
+    function($word) { <b>{$word}</b> }
+)
 ```
 
 To make this easier to read, I've split the expression onto several lines. Here's what's going on:
