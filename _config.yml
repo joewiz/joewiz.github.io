@@ -26,6 +26,7 @@ url: "http://joewiz.org" # the base hostname & protocol for your site, e.g. http
 twitter_username: joewiz
 github_username:  joewiz
 google_analytics: UA-582491-4
+timezone: America/New_York
 
 # Build settings
 theme: minima
