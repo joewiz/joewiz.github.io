@@ -54,13 +54,13 @@ Between the book and other developments, there's now a lot to catch up on in the
 
 - Cliff and I gave two half-day workshops on XQuery at [DH2017](https://dh2017.adho.org/) in Montreal: [XQuery for Digital Humanists](https://dh-abstracts.library.cmu.edu/works/4183) and [XQuery for Data Integration](https://dh-abstracts.library.cmu.edu/works/4190). These presentations gave an introduction to XQuery and covered advanced uses for digital research. See [the lecture notes and code](https://github.com/CliffordAnderson/XQuery4Humanists). 
 
-- XQuery 3.1, which enabled so much of our book and the DH2017 workshops, became a W3C Recommendation on March 21, 2017. It was great to have the finalized spec in place as we prepared the manuscript and the workshops. 
+- XQuery 3.1, which enabled so much of our book and the DH2017 workshops, became [a W3C Recommendation](https://www.w3.org/TR/xquery-31/) on March 21, 2017. It was great to have the finalized spec in place as we prepared the manuscript and the workshops. Our thanks again to the editors and the working groups for all of their efforts on this fantastic family of specifications.
 
 - Outside of conferences and this blog, I posted articles and useful code snippets—on [my GitHub Gist page](https://gist.github.com/joewiz). Articles include: 
-    - [Converting an eXist application from old-style fields to new, Lucene-based facets and fields](https://gist.github.com/joewiz/99e5fa283086e4bf74fe8143cab3f92c); 
-    - [How variables in XQuery FLWOR expressions change when using the `group by` clause](https://gist.github.com/joewiz/e9d83632a6a056976e5b5fff7c49d6d4); 
-    - [Basic dynamic web pages, with XQuery and eXist](https://gist.github.com/joewiz/69e767a20d32a22ffa37da95d75457b7); 
-    - [An introduction to recursion in XQuery](https://gist.github.com/joewiz/6762f1d8826fc291c3884cce3634eb77); and 
+    - [Converting an eXist application from old-style fields to new, Lucene-based facets and fields](https://gist.github.com/joewiz/99e5fa283086e4bf74fe8143cab3f92c) 
+    - [How variables in XQuery FLWOR expressions change when using the `group by` clause](https://gist.github.com/joewiz/e9d83632a6a056976e5b5fff7c49d6d4)
+    - [Basic dynamic web pages, with XQuery and eXist](https://gist.github.com/joewiz/69e767a20d32a22ffa37da95d75457b7)
+    - [An introduction to recursion in XQuery](https://gist.github.com/joewiz/6762f1d8826fc291c3884cce3634eb77)
     - [Full text search of Chinese text, with eXist-db and Lucene](https://gist.github.com/joewiz/49b6598790d973a557f4eaf68e1f9ca9). 
     
     (With better XQuery syntax highlighting in Jekyll now, perhaps it's time to move these articles over here and to develop some of the other code snippets into proper posts. ICYMI, Gist recently gained a long-requested feature: you'll now receive notifications when a reader leaves a comment on your Gist. Before this, readers could post comments... but the authors would never know.)
