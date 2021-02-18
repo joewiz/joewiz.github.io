@@ -7,10 +7,10 @@ tags:
   - tei
   - dh
   - exist-db
-date: 2021-02-17 19:30:00-0500
+date: 2021-02-18 00:10:00-0500
 ---
 
-Ever since my daughter learned the word "fast-forward," meaning to skip ahead in a song or TV show, she took to saying "fast-backwards" to mean "rewind." Despite the additional syllables, her phrase instantly took hold in our household. So, given the passage of time since [my previous post](https://joewiz.org/2016/12/11/catching-up/) from in December 2016, I think some fast-backwarding is in order! 
+Ever since my daughter learned the word "fast-forward," meaning to skip ahead in a song or TV show, she took to saying "fast-backwards" to mean "rewind." Despite the additional syllables, her phrase instantly took hold in our household. So, given the passage of time since [my previous post](https://joewiz.org/2016/12/11/catching-up/) from December 2016, I think some fast-backwarding is in order! 
 
 > tl;dr [XQuery for Humanists](https://xquery.forhumanists.org) is out! And a roundup of my activities and other developments in the world of XQuery, TEI, and digital humanities.
 
