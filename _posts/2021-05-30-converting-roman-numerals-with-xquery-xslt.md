@@ -190,8 +190,8 @@ raised an error when an invalid Roman numeral was included in the input string, 
 Looking ahead to 
 [XPath and XQuery 4.0](https://github.com/qt4cg/qtspecs), 
 a community effort being actively discussed in the 
-[XML Community Slack](https://www.xml.com/news/2020-04-slack-workspace-for-the-xml-community/), 
-we'll be able to streamline our code even more with these features:
+[XML Community Slack](https://www.xml.com/news/2020-04-slack-workspace-for-the-xml-community/) 
+(which just turned 1!), we'll be able to streamline our code even more with these features:
 
 1. The new 
 [`characters()` function](https://www.saxonica.com/qt4specs/FO/Overview-diff.html#func-characters) will let us jettison the inline function calling `analyze-string()`
