@@ -51,13 +51,17 @@ clarity. Problem solved and curiousity satisfied, I
 [posted my version to GitHub Gist](https://gist.github.com/joewiz/228e9cc174694e146cc8#file-roman-numerals-xqm) 
 and moved on.
 
-Last week, I came across an implementation of 
-[a Roman-to-Arabic numeral function written in Clojure](https://github.com/OpenRefine/OpenRefine/wiki/Recipes#convert-roman-numerals-to-arabic), 
+Last week, I learned about an implementation of 
+[a Roman-to-Arabic numeral function written in Clojure](https://github.com/OpenRefine/OpenRefine/wiki/Recipes#convert-roman-numerals-to-arabic)
+from a post by 
+[Thad Guidry](https://twitter.com/thadguidry) 
+on the 
+[OpenRefine mailing list](https://groups.google.com/g/openrefine/c/HdPwot5tYA0/m/pMy6sG9QAgAJ), 
 and I was amazed that it required **only 6 lines!** In comparison, Sal's XSLT 2.0 function was 63 
 lines long, Mattio's XQuery 1.0 function was 40 lines (a handful fewer if you omit the comments), 
-and my XQuery 3.0 version was 24 lines. Length isn't everything, but I wondered, did the Clojure
-version contain any insights that we could apply to simplify and streamline the earlier XQuery 
-versions? 
+and my XQuery 3.0 version was 24 lines. Brevity doesn't equal superiority, but I wondered, did 
+the Clojure version contain any insights that we could apply to simplify and streamline the 
+earlier XQuery versions? 
 
 While I don't know Clojure, I tried to pick apart the function's logic:
 
