@@ -254,8 +254,8 @@ own take.
 
 <hr/>
 
-[^1]: XQuery 3.1 added a second [pair](https://www.w3.org/TR/xpath-functions-31/#func-array-fold-left) of [functions](https://www.w3.org/TR/xpath-functions-31/#func-array-fold-right) for performing folds with arrays instead of sequences.
+[^1]: XQuery 3.1 added a second pair of functions for performing folds with arrays instead of sequences: [`array:fold-left()`](https://www.w3.org/TR/xpath-functions-31/#func-array-fold-left) and [`array:fold-right()`](https://www.w3.org/TR/xpath-functions-31/#func-array-fold-right).
 
-[^2]: In particular, see Chapter 8, "Thinking Functionally." If you don't have the book, we posted [a code sample](https://xquery.forhumanists.org/code/195-pp173/) from our discussion of `fold-left()`. 
+[^2]: In particular, see Chapter 8, "Thinking Functionally." If you don't have [the book](https://xquery.forhumanists.org), we posted [a code sample](https://xquery.forhumanists.org/code/195-pp173/) from our discussion of `fold-left()`. 
 
 [^3]: [Rosetta Code](https://rosettacode.org), a "programming chrestomathy," offers a compilation of [many languages' approaches to Roman numeral conversion](https://rosettacode.org/wiki/Roman_numerals/Decode). The same site provides a list of [similar sites](https://rosettacode.org/wiki/Help:Similar_Sites). For a fun look at how to accomplish one feat in many languages, see [99 Bottles of Beer](https://www.99-bottles-of-beer.net), with over 1,500 languages and variations (including [two in XQuery](https://www.99-bottles-of-beer.net/language-xquery-993.html)).
