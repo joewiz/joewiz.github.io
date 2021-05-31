@@ -16,7 +16,7 @@ Ever since my daughter learned the word "fast-forward," meaning to skip ahead in
 
 ## The book!
 
-At the end of my last post, I mentioned that I was "wrapping up" work on a book. In retrospect, that characterization was a tad optimistic. Three years later, my co-author, Clifford Anderson, and I met at Circle Bistro in Foggy Bottom to review our *final* set of changes for the manuscript of [XQuery for Humanists](https://xquery.forhumanists.org): 
+At the end of my last post, I mentioned that I was "wrapping up" work on a book. In retrospect, that characterization was a tad optimistic. Three more years would pass. Last December, my co-author, Clifford Anderson, and I met at Circle Bistro in Foggy Bottom to review our *final* set of changes for the manuscript of [XQuery for Humanists](https://xquery.forhumanists.org): 
 
 > We just sent in the final proofs and index for XQuery for Humanists, due out from @TAMUPress—[@andersoncliffb, Dec 10, 2019](https://twitter.com/andersoncliffb/status/1204558089875345409)
 
