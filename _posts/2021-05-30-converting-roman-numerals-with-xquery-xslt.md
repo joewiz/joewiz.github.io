@@ -149,7 +149,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
                     [ $running-total + $number, $number ]
         }
     )
-    => array:get(1)
+    => array:head()
 };
 ```
 
@@ -159,7 +159,7 @@ This updated XQuery 3.1 function takes a string containing a Roman numeral and p
 1. The uppercase Roman numeral is split into individual symbols.
 1. Each symbol is converted to its corresponding integer value. 
 1. Moving through these integers from *right* to *left*, it compares each number to the previous value it had examined. (Upon first run, the starting "previous number" is simply 0.) If the current number is less than the previous number, the current number is subtracted from the running total, but otherwise, it is added to the running total. (Since the running total starts at 0, the first number is always added to 0, but any subsequent numbers will be added or subtracted accordingly.)
-1. Once all letters have been exhausted, the final total is returned.
+1. Once all numerals have been exhausted, the final total is returned.
 
 For example, given the Roman numeral "vi", or 6:
 
@@ -170,7 +170,13 @@ For example, given the Roman numeral "vi", or 6:
 1. Continuing from right-to-left, the next number checked is 5. Since 5 is greater than the previous number (1), 5 is added to the "running total" (1), yielding a value of 6. 
 1. With all numerals exhausted, the function returns the final "running total": 6.
 
-The `fold-right()` function is responsible for the logic starting with line 4. Starting with a default "running total" of 0 and a default "previous number" of 0 (these two default values comprise the function's `[0, 0]` array), it begins running through each of the integers from right to left, one at a time. After each comparison, it updates the `$accumulator` variable with the new pair of values for the "running total" and "previous number." Once it's finished, we can access the final total by looking up the first value in the array returned by the `fold-right()` function.
+The `fold-right()` function is responsible for the logic starting with step 4. Starting with a 
+default "running total" of 0 and a default "previous number" of 0 (these two default values 
+comprise the function's `[0, 0]` array), it begins running through each of the integers from 
+right to left, one at a time. After each comparison, it updates the `$accumulator` variable with 
+the new pair of values for the "running total" and "previous number." Once it's finished, we can 
+access the final total by looking up the first value in the array returned by the `fold-right()`
+function.
 
 A more complex example is "xliv", or 44:
 
@@ -222,18 +228,18 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
                     [ $running-total + $number, $number ]
         }
     )
-    => array:get(1)
+    => array:head()
 };
 ```
 
-Applying a more compact whitespace policy similar to that of the Clojure, we could not just meet 
-but even beat the Clojure original, with this **5 line** equivalent:
+Applying a more compact whitespace policy similar to that of the Clojure version, we could not 
+just meet but even beat it, with this **5 line** equivalent:
 
 ```xquery
 declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer {
     $roman-numeral => upper-case() => characters() => fold-right([0,0], -> $symbol, $a { 
         let $n := map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?($symbol)
-        return if ($n lt $a?2) then [ $a?1 - $n, $n ] else [ $a?1 + $n, $n ] } => array:get(1)
+        return if ($n lt $a?2) then [ $a?1 - $n, $n ] else [ $a?1 + $n, $n ] } => array:head()
 };
 ```
 
