@@ -22,7 +22,7 @@ email: joewiz@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Joe Wicentowski’s blog: a place for thoughts longer than a tweet, shorter than a book
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://joewiz.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://joewiz.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: joewiz
 github_username:  joewiz
 google_analytics: UA-582491-4
