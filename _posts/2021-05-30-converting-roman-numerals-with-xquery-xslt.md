@@ -111,9 +111,9 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
     => upper-case()
     => characters()
     => for-each(
-        function($symbol) { 
+        -> $symbol { 
             map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?($symbol) 
-        } 
+        }
     )
     => fold-right( [0, 0], 
         -> $number, $accumulator { 
