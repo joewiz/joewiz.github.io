@@ -100,8 +100,8 @@ A more complex example is "xliv", or 44:
 
 Looking ahead to [XPath and XQuery 4.0](https://github.com/qt4cg/qtspecs), a community effort being actively discussed in the [XML Community Slack](https://www.xml.com/news/2020-04-slack-workspace-for-the-xml-community/) (which just turned 1!), we'll be able to streamline our code even more with these features:
 
-1. The new [`characters()` function](https://www.saxonica.com/qt4specs/FO/Overview-diff.html#func-characters) will let us jettison the inline function calling `analyze-string()`
-1. The new, short form of the [inline function expression](https://www.saxonica.com/qt4specs/XQ/xquery-40-diff.html#id-inline-func) will let us jettison the verbose function expressions. 
+1. The new [`characters()` function](https://qt4cg.org/branch/master/xpath-functions-40/Overview-diff.html#func-characters) will let us jettison the inline function calling `analyze-string()`
+1. The new, short form of the [inline function expression](https://qt4cg.org/branch/master/xquery-40/xpath-40-diff.html#id-inline-func) will let us jettison the verbose function expressions. 
 
 Based on the draft spec, the XQuery 4.0 version will weigh in at 17 lines, using the same liberal whitespace:
 
