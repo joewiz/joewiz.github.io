@@ -92,7 +92,7 @@ A more complex example is "xliv", or 44:
 1. These symbols are converted into a sequence of 4 integers: 10, 50, 1, and 5.
 1. Proceeding from right to left, the first number checked is 5. Since 5 is greater than the default "previous number" (0), 5 is added to the default "running total" (0), yielding a value of 5. 
 1. Continuing from right to left, the next number checked is 1. Since 1 is less than the "previous number" (5), 1 is subtracted from the "running total" (5), yielding a value of 4. 
-1. The next number checked is 50. Since 50 is greater to the "previous number" (1), 50 is added to the "running total" (4), yielding a value of 54. 
+1. The next number checked is 50. Since 50 is greater than the "previous number" (1), 50 is added to the "running total" (4), yielding a value of 54. 
 1. The final number checked is 10. Since 10 is less than the "previous number" (50), 10 is subtracted from the "running total" (54), yielding a value of 44. 
 1. With all numerals exhausted, the function returns the final "running total": 44.
 
