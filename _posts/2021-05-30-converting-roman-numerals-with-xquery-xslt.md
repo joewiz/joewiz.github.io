@@ -127,14 +127,14 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
 };
 ```
 
-Applying some mild refactoring and a compact whitespace policy similar to that of the Clojure version, we'll be able to not just meet it but beat it, with this **5 line** equivalent:
+Applying some mild refactoring and a compact whitespace policy, we'll be able to not just meet the Clojure version but beat it, with this **5 line** equivalent:
 
 ```xquery
-declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer {
-    $roman-numeral => upper-case() => characters() => fold-right([0,0], ->($symbol, $accumulator) { 
-        let $number := map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
-        return if ($number lt $accumulator?2) then [ $accumulator?1 - $number, $number ] else [ $accumulator?1 + $number, $numbers ] } ) => array:head()
-};
+declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer { 
+    $roman-numeral => upper-case() => characters() 
+    => for-each(map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 })
+    => fold-right([0,0], ->($number, $accumulator) { if ($number lt $accumulator?2) then [ $accumulator?1 - $number, $number ] else [ $accumulator?1 + $number, $number ] } ) 
+    => array:head() };
 ```
 
 The purpose of such exercises, of course, is not to achieve the most compact or "best" implementation of this simple algorithm, but rather to illustrate how a simple challenge like converting Roman into Arabic numerals can be a gateway to powerful features built into XQuery, or your language of choice.[^3] The arrow operator, inline functions, and folds—all insights from functional programming—can both simplify and supercharge your XQuery. But, more generally, finding examples of how others have approached a challenge that you find interesting is a great way to learn, get things done, and—perhaps, before long—contribute your own take.
