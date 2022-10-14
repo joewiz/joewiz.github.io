@@ -116,7 +116,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
         }
     )
     => fold-right( [0, 0], 
-        -> $number, $accumulator { 
+        -> ($number, $accumulator) { 
             let $running-total := $accumulator?1
             let $previous-number := $accumulator?2
             return
