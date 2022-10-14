@@ -102,6 +102,7 @@ Looking ahead to [XPath and XQuery 4.0](https://github.com/qt4cg/qtspecs), a com
 
 1. The new [`characters()` function](https://qt4cg.org/branch/master/xpath-functions-40/Overview-diff.html#func-characters) will let us jettison the inline function calling `analyze-string()`
 1. The new, short form of the [inline function expression](https://qt4cg.org/branch/master/xquery-40/xpath-40-diff.html#id-inline-func) will let us jettison the verbose function expressions. 
+1. **Update (Oct 14, 2022)**: The [lookup operator ("?") for maps and arrays](https://qt4cg.org/specifications/xquery-40/xpath-40-diff.html#id-lookup) can now accept variable references without requiring them to be wrapped in parentheses.
 
 Based on the draft spec, the XQuery 4.0 version will weigh in at 17 lines, using the same liberal whitespace:
 
@@ -112,7 +113,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
     => characters()
     => for-each(
         -> $symbol { 
-            map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?($symbol) 
+            map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
         }
     )
     => fold-right( [0, 0], 
@@ -135,7 +136,7 @@ Applying a more compact whitespace policy similar to that of the Clojure version
 ```xquery
 declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer {
     $roman-numeral => upper-case() => characters() => fold-right([0,0], -> ($symbol, $accumulator) { 
-        let $n := map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?($symbol)
+        let $n := map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
         return if ($n lt $accumulator?2) then [ $accumulator?1 - $n, $n ] else [ $accumulator?1 + $n, $n ] } ) => array:head()
 };
 ```
