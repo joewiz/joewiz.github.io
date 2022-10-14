@@ -112,12 +112,12 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
     => upper-case()
     => characters()
     => for-each(
-        -> $symbol { 
+        ->$symbol { 
             map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
         }
     )
     => fold-right( [0, 0], 
-        -> ($number, $accumulator) { 
+        ->($number, $accumulator) { 
             let $running-total := $accumulator?1
             let $previous-number := $accumulator?2
             return
@@ -135,7 +135,7 @@ Applying some mild refactoring and a compact whitespace policy similar to that o
 
 ```xquery
 declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer {
-    $roman-numeral => upper-case() => characters() => fold-right([0,0], -> ($symbol, $accumulator) { 
+    $roman-numeral => upper-case() => characters() => fold-right([0,0], ->($symbol, $accumulator) { 
         let $n := map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
         return if ($n lt $accumulator?2) then [ $accumulator?1 - $n, $n ] else [ $accumulator?1 + $n, $n ] } ) => array:head()
 };
