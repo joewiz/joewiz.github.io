@@ -31,7 +31,7 @@ I found it somewhat terse, but I deduced that it achieves most of its compactnes
 
 Besides folds, several other recent features of XQuery can simplify our function for Roman numeral processing. A large portion of the earlier XQuery functions were dedicated to spelling out how to convert individual Roman numeral symbols into integers: Sal used an XML lookup structure, Mattio used a conditional chain, and I had used a switch expression. The Clojure version used a map for this purpose, so I tried XQuery's [map](https://www.w3.org/TR/xquery-31/#id-maps) facility and found this nicely simplified the [lookup](https://www.w3.org/TR/xquery-31/#id-lookup) operation. I also found that XQuery's [array](https://www.w3.org/TR/xquery-31/#id-arrays) facility was a nice way to store and look up the tuple values for the fold function's accumulator, i.e., `[0, 0]` as the starting values and `[$running-total, $previous-number]` for ongoing values. Also, to achieve a similarly clean, linear flow as the Clojure version, I applied XQuery's [arrow operator](https://www.w3.org/TR/xquery-31/#id-arrow-operator) (`=>`), which allows us to elegantly pass values through a chain of functions. I also used XQuery's [`for-each()`](https://www.w3.org/TR/xpath-functions-31/#func-for-each) function to help when I applied inline functions in arrow operator chains. Lastly, while XQuery doesn't *yet* have a built-in function for splitting strings into characters, I was able to simplify the task of selecting each Roman numeral's individual characters by applying XQuery's powerful [`analyze-string()`](https://www.w3.org/TR/xpath-functions-31/#func-analyze-string) function.
 
-Applying these techniques—folds, maps, the arrow operator, and the `for-each()` and `analyze-string()` functions—the new XQuery version weighs in at 25 lines, including liberal use of whitespace. It doesn't sacrifice clarity, assuming you understand how folding works. (Don't worry if you don't; I'll explain it below.) Here's the XQuery:
+Applying these techniques—folds, maps, the arrow operator, and the `for-each()` and `analyze-string()` functions—the new XQuery version weighs in at 24 lines, including liberal use of whitespace. It doesn't sacrifice clarity, assuming you understand how folding works. (Don't worry if you don't; I'll explain it below.) Here's the XQuery:
 
 ```xquery
 xquery version "3.1";
@@ -47,9 +47,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
         } 
     )
     => for-each( 
-        function($symbol) { 
-            map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?($symbol) 
-        } 
+        map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }
     )
     => fold-right( [0, 0], 
         function($number as xs:integer, $accumulator as array(*)) { 
@@ -112,9 +110,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
     => upper-case()
     => characters()
     => for-each(
-        ->($symbol) { 
-            map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }?$symbol
-        }
+        map { "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1 }
     )
     => fold-right( [0, 0], 
         ->($number, $accumulator) { 
