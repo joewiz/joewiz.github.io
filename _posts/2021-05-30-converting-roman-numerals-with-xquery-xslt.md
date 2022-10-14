@@ -98,7 +98,7 @@ A more complex example is "xliv", or 44:
 
 (Whereas [my earlier XQuery 3.0 version](https://gist.github.com/joewiz/228e9cc174694e146cc8#file-roman-numerals-xqm) raised an error when an invalid Roman numeral was included in the input string, this one just assigns any invalid symbols the value of 0.)
 
-Looking ahead to [XPath and XQuery 4.0](https://github.com/qt4cg/qtspecs), a community effort being actively discussed in the [XML Community Slack](https://www.xml.com/news/2020-04-slack-workspace-for-the-xml-community/) (which just turned 1!), we'll be able to streamline our code even more with these features:
+Looking ahead to [XPath and XQuery 4.0](https://qt4cg.org/), a community effort being actively discussed in the [XML Community Slack](https://www.xml.com/news/2020-04-slack-workspace-for-the-xml-community/) (which just turned 1!), we'll be able to streamline our code even more with these features:
 
 1. The new [`characters()` function](https://qt4cg.org/specifications/xpath-functions-40/Overview-diff.html#func-characters) will let us jettison the inline function calling `analyze-string()`
 1. The new, short form of the [inline function expression](https://qt4cg.org/specifications/xquery-40/xpath-40-diff.html#id-inline-func) will let us jettison the verbose function expressions. 
