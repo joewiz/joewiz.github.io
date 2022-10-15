@@ -127,7 +127,7 @@ declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integ
 };
 ```
 
-Applying some mild refactoring and a compact whitespace policy, we'll be able to not just meet the Clojure version but beat it, with this **5 line** equivalent:
+Applying a reasonably compact, still readable whitespace policy, we'll be able to not just meet the Clojure version but beat it, with this **5 line** equivalent:
 
 ```xquery
 declare function r:decode-roman-numeral($roman-numeral as xs:string) as xs:integer { 
