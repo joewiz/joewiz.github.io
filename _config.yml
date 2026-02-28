@@ -25,7 +25,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://joewiz.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: joewiz
 github_username:  joewiz
-google_analytics: UA-582491-4
+google_analytics: G-QGZ2VS82PJ
 timezone: America/New_York
 
 # Build settings
