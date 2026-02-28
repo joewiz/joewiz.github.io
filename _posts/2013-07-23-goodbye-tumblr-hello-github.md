@@ -6,6 +6,8 @@ tags:
   - github
   - jekyll
   - writing
+last_modified_at: 2020-03-18 00:42:08 -0400
+
 ---
 
 I've moved my blog from Tumblr to [GitHub Pages](https://pages.github.com/).  While Tumblr is a capable blogging platform, I had become frustrated with it.  I began longing for a way to write more simply and yet with more rigor — with simple, plain text.  

@@ -6,6 +6,8 @@ tags:
   - xml
   - learning
   - dh
+last_modified_at: 2020-03-18 00:42:08 -0400
+
 ---
 Two weeks ago several of my colleagues and I were lucky enough to take a
 course on "[XQuery for

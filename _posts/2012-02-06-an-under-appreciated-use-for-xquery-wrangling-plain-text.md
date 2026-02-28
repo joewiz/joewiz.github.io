@@ -7,7 +7,8 @@ tags:
   - tei
   - xquery
   - exist-db
-date: 2012-02-06 16:15:00-0400
+date: 2012-02-06 16:15:00-040
+last_modified_at: 2020-03-18 00:42:08 -0400
 ---
 
 In my experience teaching colleagues and students how to use [XQuery](https://en.wikipedia.org/wiki/XQuery) and [eXist-db](https://exist-db.org/) to create dynamic websites out of [TEI](http://www.tei-c.org/) documents, the "syllabus" usually starts in one of two forms. The first assumes that we already have well-formed TEI documents, and we can happily dive right into XML data structure manipulation with XPath and XQuery. The second starts with no XML: a PDF, a word document, or plain text. Now, of course, thanks to [OxGarage](http://www.oucs.ox.ac.uk/oxgarage/) and [oXygen](http://www.oxygenxml.com/demo/Smart_Paste_Copy_Paste_from_Web_Office_Documents_to_DITA_DocBook_TEI_XHTML_Documents.html), we have some good tools for deriving servicable TEI documents out of other formats. But more often than not, the text needs work. Sometimes, the importer fails to capture the structure implicit in the original. For all of these cases, XQuery proves to be an indispensable tool. XQuery's regular-expression functions (such as `matches()`, `replace()`, and `tokenize()`), together with its excellent handling of sequences and recursive functions provide all of the tools one could ever need to tackle everything from simple to the most challenging text wrangling tasks.

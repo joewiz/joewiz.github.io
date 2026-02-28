@@ -7,7 +7,8 @@ tags:
   - tei
   - dh
   - exist-db
-date: 2021-05-30 11:45:00-0400
+date: 2021-05-30 11:45:00-040
+last_modified_at: 2022-10-15 00:09:38 -0400
 ---
 
 Have you ever needed a way to convert Roman numerals into Arabic numerals programmatically? One day in March 2015, I realized I did. I was writing a Schematron rule to check cross references like "see pp. 1–4" that take the form of a range of page numbers. The rule simply checked whether the pages in the range were ordered as expected. For example, a page range like "5–4" had to be flagged as an error, since 4 comes before 5. But to perform this check on cross references that used Roman numerals, such as "pp. i–v", I needed to find a way to convert Roman numerals into their Arabic numeral counterparts. For expediency's sake, I used automation guru Sal Mangano's `roman-to-number()` function ([_XSLT Cookbook_, 2nd Edition](https://www.oreilly.com/library/view/xslt-cookbook-2nd/0596009747/), pp. 70–72). Conveniently for my purposes, Sal used XSLT 2, which I was able to embed directly into my Schematron file. (If you're interested, see the commit where I [embedded Sal's function](https://github.com/HistoryAtState/frus/commit/9fb636dd13681807dc6f22ca42526d02519e6c01#diff-018e15eb2a6ad70244a86245c097cf6c7a5107e914750c1c258bbf51512f1e1eR219-R285) and [invoked it in my schematron](https://github.com/HistoryAtState/frus/commit/9fb636dd13681807dc6f22ca42526d02519e6c01#diff-018e15eb2a6ad70244a86245c097cf6c7a5107e914750c1c258bbf51512f1e1eR157-R159). Sal's function is an interesting read; it uses XML's guarantee of document order and the XPath `following-sibling::` axis to check if the next numeral is greater than the current numeral.)

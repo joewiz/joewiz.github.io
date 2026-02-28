@@ -5,6 +5,8 @@ tags:
   - xquery
   - nlp
   - exist-db
+last_modified_at: 2020-03-18 00:42:08 -0400
+
 ---
 Where does each sentence in this post start and end? Given some schooling and well punctuated text, our brains handle this task pretty easily, but it turns out that telling a computer how to split a text into sentences is a bit tricky. In modern English we have a general rule: sentences begin with a capitalized word and end with a period. But there are plenty of exceptions to account for in writing a program to isolate sentences: other words in the sentence might be capitalized, and abbreviations can contain and end with those periods, whether they’re at the end of a sentence or not.
 

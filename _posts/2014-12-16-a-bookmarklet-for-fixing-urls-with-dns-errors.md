@@ -5,7 +5,8 @@ title: A Google Chrome bookmarklet for fixing URLs with DNS errors
 tags: 
   - chrome
   - bookmarklet
-date: 2014-12-16 16:15:00-0400
+date: 2014-12-16 16:15:00-040
+last_modified_at: 2020-03-18 00:42:08 -0400
 ---
 
 **Update (March 18, 2020):** As of sometime in 2017, Chrome [disabled the use of javascript](https://groups.google.com/a/chromium.org/forum/#!msg/blink-reviews/ob1_Xw5SWQM/nDhD5QLNAAAJ) on chrome error pages. The technique shown below no longer works.

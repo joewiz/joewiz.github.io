@@ -5,6 +5,8 @@ title: Jekyll blogging in the browser with prose.io
 tags: 
   - writing
   - jekyll
+last_modified_at: 2020-03-18 00:42:08 -0400
+
 ---
 
 In my continuing quest to find good tools for writing for this Jekyll- and Github Pages-based blog (see [my last post](http://joewiz.org/2013/08/18/mobile-blogging-with-jekyll/) about writing from the iPhone), let's turn to the browser.  
