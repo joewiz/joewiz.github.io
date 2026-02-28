@@ -2,12 +2,13 @@
 published: true
 layout: post
 title: Filling PDF forms with PDFtk, XFDF, and XQuery
-tags: 
-  - XQuery
-  - eXist-db
-  - PDF
-  - PDFtk
-  - XFDF
+tags:
+  - xquery
+  - exist-db
+  - pdf
+  - pdftk
+  - xfdf
+
 ---
 
 It's hard to believe that PDF is still used for forms these days; they seem so last decade, or even century, compared to what's possible on the web. I dread the tedium and boredom of filling out a PDF form with tons of fields or creating multiple editions of a form with different information on each. 

@@ -3,8 +3,8 @@ published: true
 layout: post
 title: | 
     eXist: the indispensable guide
-tags: 
-  - exist
+tags:
+  - exist-db
   - xquery
 date: 2014-12-28 08:30:00-0500
 ---

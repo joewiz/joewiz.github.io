@@ -3,8 +3,8 @@ published: true
 layout: post
 title: | 
     A preview of XQuery 3.1's JSON support in eXist
-tags: 
-  - exist
+tags:
+  - exist-db
   - xquery
   - json
   - api
