@@ -6,6 +6,8 @@ tags:
   - search
   - text mining
   - dh
+last_modified_at: 2020-11-18 10:02:22 -0500
+
 ---
 Even if you don't know XQuery, if you've only heard of it, you know XQuery is a language built for querying, or searching, XML. And if you've started learning XQuery for a digital humanities project, you use XQuery because it helps you _search the text_ that you've put inside your XML. Given your interest in searching text, it's likely that the first function you learn in an XQuery class or tutorial is `contains()`. Take this simple XPath expression:
 

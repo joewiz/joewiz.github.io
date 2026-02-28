@@ -8,7 +8,8 @@ tags:
   - xquery
   - dh
   - exist-db
-date: 2010-11-22 16:15:00-0400
+date: 2010-11-22 16:15:00-040
+last_modified_at: 2020-03-18 00:42:08 -0400
 ---
 
 Chances are that if you're in the digital humanities, you either use [TEI](http://www.tei-c.org/ "Text Encoding Initiative homepage") or some other flavor of XML to store all of your data, or your project uses XML in some key areas. If you use XML, then [eXist](https://exist-db.org/ "eXist homepage") should be in your toolkit. Why? Well, as you already know, XML is a fantastic way to encode and annotate scholarly data and metadata, but without a database to store it, a web server to publish it, or a search engine to analyze it, your project may fall short of its potential. eXist does all of the above: It's a fast web server, a powerful database, and a full-featured search engine. (To contrast it with other tools used in digital humanities work, eXist isn't a content management system like Drupal or Omeka, or a digital object repository like Fedora; it's more of a database and an application server that can be adapted to your project's needs.) It's free, built on open standards, and continually improved by the open source community. It runs on Macs, PCs, and Linux and is easy to install; you can install it anywhere from your netbook or laptop to a desktop computer or a dedicated server.

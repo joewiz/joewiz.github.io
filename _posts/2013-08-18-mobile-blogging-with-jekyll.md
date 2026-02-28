@@ -4,6 +4,8 @@ title: Mobile blogging with Jekyll
 tags: 
   - writing
   - jekyll
+last_modified_at: 2020-03-18 01:10:41 -0400
+
 ---
 
 One downside of moving to Jekyll (as I [recently did](https://joewiz.org/2013/07/23/goodbye-tumblr-hello-github/) with this blog) is that you leave the vibrant ecosystem of mobile blogging apps. Tumblr's app, for example, let me get thoughts down [with my one free hand](https://joewiz.org/2012/12/30/john-horlivy-remembered/) and post them right away, or edit old posts with ease. 

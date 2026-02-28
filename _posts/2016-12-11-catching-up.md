@@ -7,7 +7,8 @@ tags:
   - github
   - xquery
   - writing
-date: 2016-12-11 14:30:00-0500
+date: 2016-12-11 14:30:00-050
+last_modified_at: 2020-11-18 10:09:19 -0500
 ---
 
 After spotting a typo in an old post, I fired up my local Jekyll server to preview the change, but instead got an error. Between a major new version of Jekyll and updates to other supporting software on my computer, none of which I understand well, I decided it would be easier to toss my old Jekyll customizations and embrace the latest versions of everything. So out with the old, and in with the new. That means a new default theme, [minima](https://github.com/jekyll/minima). I hope to restore syntax highlighting for XQuery—apparently not supported by Jekyll's new default syntax highlighter. 

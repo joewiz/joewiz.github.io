@@ -4,6 +4,7 @@ title: Trimming text without cutting off words, using XQuery
 tags:
   - xquery
 link: https://gist.github.com/joewiz/5923408
+last_modified_at: 2020-03-18 00:42:08 -0400
 
 ---
 A new Github gist:
