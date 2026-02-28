@@ -7,7 +7,7 @@ tags:
   - xml
   - xquery
   - dh
-  - exist
+  - exist-db
 date: 2010-11-22 16:15:00-0400
 ---
 

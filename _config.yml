@@ -27,6 +27,9 @@ twitter_username: joewiz
 github_username:  joewiz
 google_analytics: UA-582491-4
 timezone: America/New_York
+header_pages:
+  - tags.md
+  - about.md
 
 # Build settings
 host: "0.0.0.0" # bind to all interfaces so dev container port forwarding works

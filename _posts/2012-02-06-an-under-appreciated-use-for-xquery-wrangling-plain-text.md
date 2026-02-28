@@ -6,7 +6,7 @@ title: |
 tags: 
   - tei
   - xquery
-  - exist
+  - exist-db
 date: 2012-02-06 16:15:00-0400
 ---
 

@@ -4,9 +4,10 @@ title: Upside down
 tags:
   - xml
   - xquery
-  - existdb
+  - exist-db
   - dhoxss
 link: http://depalaeographia.tumblr.com/post/9120075588/upside-down
+
 ---
 depalaeographia:
 
