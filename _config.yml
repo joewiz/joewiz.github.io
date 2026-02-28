@@ -29,6 +29,7 @@ google_analytics: UA-582491-4
 timezone: America/New_York
 
 # Build settings
+host: "0.0.0.0" # bind to all interfaces so dev container port forwarding works
 theme: minima
 plugins:
   - jekyll-feed
