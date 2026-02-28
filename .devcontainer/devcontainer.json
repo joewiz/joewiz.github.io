@@ -1,0 +1,27 @@
+{
+  "name": "joewiz.org",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.3",
+
+  // Forward Jekyll serve (4000) and livereload (35729)
+  "forwardPorts": [4000, 35729],
+  "portsAttributes": {
+    "4000": {
+      "label": "Jekyll serve",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  // Install gems on container creation
+  "postCreateCommand": "bundle install",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Liquid template syntax highlighting
+        "Shopify.theme-check-vscode",
+        // Markdown editing helpers
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  }
+}
