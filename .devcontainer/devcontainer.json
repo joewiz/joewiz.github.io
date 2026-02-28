@@ -1,6 +1,6 @@
 {
   "name": "joewiz.org",
-  "image": "mcr.microsoft.com/devcontainers/ruby:3.3",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.4",
 
   // Forward Jekyll serve (4000) and livereload (35729)
   "forwardPorts": [4000, 35729],
